@@ -38,9 +38,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 394417977
+    locked: 0
+  - name: MidGround
+    uniqueID: 890125039
+    locked: 0
+  - name: ForeGround
+    uniqueID: 1217819105
+    locked: 0
+  - name: Buildings
+    uniqueID: 982854605
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Player
     uniqueID: 2533111643
+    locked: 0
+  - name: Forest
+    uniqueID: 501009515
     locked: 0
