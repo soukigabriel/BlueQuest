@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
+    //Movement variables
     Vector2 axis = Vector2.zero;
     [SerializeField] float speed;
     private const string HORIZONTAL = "Horizontal";
@@ -12,6 +14,14 @@ public class PlayerController : MonoBehaviour
     bool isMoving;
     Rigidbody2D m_RigidBody;
 
+
+    //Animation variables
+    Animator m_Animator;
+    int m_HashHorizontalVelocity;
+    int m_HashVerticalVelocity;
+    int m_HashLastHorizontal;
+    int m_HashLastVertical;
+    int m_HashIsMoving;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +33,12 @@ public class PlayerController : MonoBehaviour
     {
         isMoving = false;
         m_RigidBody = gameObject.GetComponent<Rigidbody2D>();
+        m_Animator = gameObject.GetComponent<Animator>();
+        m_HashHorizontalVelocity = Animator.StringToHash("HorizontalVelocity");
+        m_HashVerticalVelocity = Animator.StringToHash("VerticalVelocity");
+        m_HashLastHorizontal = Animator.StringToHash("LastHorizontal");
+        m_HashLastVertical = Animator.StringToHash("LastVertical");
+        m_HashIsMoving = Animator.StringToHash("IsMoving");
     }
 
     // Update is called once per frame
@@ -50,5 +66,11 @@ public class PlayerController : MonoBehaviour
             axis = Vector2.zero;
         }
         m_RigidBody.velocity = axis.normalized * speed * Time.fixedDeltaTime;
+        m_Animator.SetBool(m_HashIsMoving, isMoving);
+        m_Animator.SetFloat(m_HashHorizontalVelocity, axis.x);
+        m_Animator.SetFloat(m_HashVerticalVelocity, axis.y);
+        m_Animator.SetFloat(m_HashLastHorizontal, lastMovement.x);
+        m_Animator.SetFloat(m_HashLastVertical, lastMovement.y);
     }
+
 }
