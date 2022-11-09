@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - VirtualCamera
   layers:
   - Default
   - TransparentFX
@@ -38,9 +39,30 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
+  - name: Background
+    uniqueID: 394417977
+    locked: 0
+  - name: MidGround
+    uniqueID: 890125039
+    locked: 0
+  - name: ForeGround
+    uniqueID: 1217819105
+    locked: 0
+  - name: Buildings
+    uniqueID: 982854605
     locked: 0
   - name: Player
     uniqueID: 2533111643
+    locked: 0
+  - name: Forest
+    uniqueID: 501009515
+    locked: 0
+  - name: InsideFrontDoor
+    uniqueID: 1522155131
+    locked: 0
+  - name: InsideFrontDoorFrame
+    uniqueID: 1786824445
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
