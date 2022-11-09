@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - VirtualCamera
   layers:
   - Default
   - TransparentFX
@@ -58,4 +59,10 @@ TagManager:
     locked: 0
   - name: Forest
     uniqueID: 501009515
+    locked: 0
+  - name: InsideFrontDoor
+    uniqueID: 1522155131
+    locked: 0
+  - name: InsideFrontDoorFrame
+    uniqueID: 1786824445
     locked: 0

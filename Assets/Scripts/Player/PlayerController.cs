@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //Bahaviour variables
+    public string nextSpawnPoint;
+    public static bool playerCreated;
 
     //Movement variables
     Vector2 axis = Vector2.zero;
     [SerializeField] float speed;
     private const string HORIZONTAL = "Horizontal";
     private const string VERTICAL = "Vertical";
-    Vector2 lastMovement = Vector2.zero;
+    public Vector2 lastMovement = Vector2.zero;
     bool isMoving;
     Rigidbody2D m_RigidBody;
 
@@ -26,7 +29,15 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(!playerCreated)
+        {
+            playerCreated = true;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Awake()
