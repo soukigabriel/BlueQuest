@@ -14,17 +14,19 @@ public class SpawnZone : MonoBehaviour
     private void Start()
     {
         thePlayer = FindObjectOfType<PlayerController>();
-        theMainCamera = GameObject.FindGameObjectWithTag("MainCamera").transform;
-        theVirtualCamera = GameObject.FindGameObjectWithTag("VirtualCamera").transform;
-
         if (!thePlayer.nextSpawnPoint.Equals(m_SpawnPointName))
         {
             return;
         }
         thePlayer.transform.position = this.transform.position;
-        //theMainCamera.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, theMainCamera.transform.position.z);
-        //theVirtualCamera.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, theVirtualCamera.transform.position.z);
 
         thePlayer.lastMovement = facingDirection;
+    }
+
+    [ContextMenu("SetPosition")]
+    public void SetPosition()
+    {
+        thePlayer = FindObjectOfType<PlayerController>();
+        thePlayer.transform.position = this.transform.position;
     }
 }
