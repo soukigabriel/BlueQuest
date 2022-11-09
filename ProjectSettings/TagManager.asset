@@ -51,9 +51,6 @@ TagManager:
   - name: Buildings
     uniqueID: 982854605
     locked: 0
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Player
     uniqueID: 2533111643
     locked: 0
@@ -65,4 +62,7 @@ TagManager:
     locked: 0
   - name: InsideFrontDoorFrame
     uniqueID: 1786824445
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0

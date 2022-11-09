@@ -23,7 +23,7 @@ public class SpawnZone : MonoBehaviour
         }
         thePlayer.transform.position = this.transform.position;
         //theMainCamera.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, theMainCamera.transform.position.z);
-        theVirtualCamera.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, theVirtualCamera.transform.position.z);
+        //theVirtualCamera.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, theVirtualCamera.transform.position.z);
 
         thePlayer.lastMovement = facingDirection;
     }
