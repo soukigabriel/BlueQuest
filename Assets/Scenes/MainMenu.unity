@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!212 &1182751 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2017908354768388872, guid: a0f5d901c7b30e1479831700dee9b519, type: 3}
+  m_PrefabInstance: {fileID: 2019916809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8456851
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,6 +704,11 @@ RectTransform:
   m_AnchoredPosition: {x: -50, y: 50}
   m_SizeDelta: {x: 192, y: 192}
   m_Pivot: {x: 1, y: 0}
+--- !u!212 &132156352 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4398944250311791812, guid: a0f5d901c7b30e1479831700dee9b519, type: 3}
+  m_PrefabInstance: {fileID: 2019916809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!212 &133129201 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 4937097300589897158, guid: ac02cff1418e2c545951387c22ebbe50, type: 3}
@@ -726,6 +736,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8af95935fbf0ba94ebd38291898f8edf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frontHatSpriteOne: {fileID: 21300000, guid: 19302b6ee3393ac4ea8c46c22e690e9a, type: 3}
+  frontHatSpriteTwo: {fileID: 21300000, guid: 7621202ce76c34c4ba225b38f2d2d1b6, type: 3}
+  frontBodyClotheSpriteOne: {fileID: 21300000, guid: 427d867232f3e0c48a9fb135e6c9af1b, type: 3}
+  frontBodyClotheSpriteTwo: {fileID: 21300000, guid: 193cc8d18792ef54d8faad8054d1b91a, type: 3}
   frontLeftArmClotheSprite: {fileID: 21300000, guid: 45410feedd4e3a94494649597ded949a, type: 3}
   frontRightArmClotheSprite: {fileID: 21300000, guid: dbcf8556596c3c549a3f611db7985736, type: 3}
   frontLeftLegClotheSprite: {fileID: 21300000, guid: a90c330f1b683bf4a91d4d6967de36a9, type: 3}
@@ -734,6 +748,13 @@ MonoBehaviour:
   frontRightArmNakedSprite: {fileID: 21300000, guid: 1314a8ac44600344694f9e9e5b5db452, type: 3}
   frontLeftLegNakedSprite: {fileID: 21300000, guid: 97ad075851e620e4ab34bec8a0a4f29b, type: 3}
   frontRightLegNakedSprite: {fileID: 21300000, guid: e6592a1dca709884ba449a49f1818283, type: 3}
+  frontHat: {fileID: 1749378711}
+  frontBodyClothes: {fileID: 1263974175}
+  frontLeftArm: {fileID: 327073923}
+  frontRightArm: {fileID: 609196656}
+  frontWeaponSprite: {fileID: 1653931821}
+  frontLeftLeg: {fileID: 382801106}
+  frontRightLeg: {fileID: 1004780786}
   InventoryFrontHat: {fileID: 243515748}
   InventoryFrontBodyClothes: {fileID: 1743172953}
   InventoryFrontLeftArm: {fileID: 785393374}
@@ -741,13 +762,25 @@ MonoBehaviour:
   InventoryWeaponSprite: {fileID: 319845119}
   InventoryFrontLeftLeg: {fileID: 1379616584}
   InventoryFrontRightLeg: {fileID: 133129201}
-  frontHat: {fileID: 1749378711}
-  frontBodyClothes: {fileID: 1263974175}
-  frontLeftArm: {fileID: 327073923}
-  frontRightArm: {fileID: 609196656}
-  weaponSprite: {fileID: 1653931821}
-  frontLeftLeg: {fileID: 382801106}
-  frontRightLeg: {fileID: 1004780786}
+  backHat: {fileID: 1182751}
+  backBodyClothes: {fileID: 1456677634}
+  backLeftArm: {fileID: 1752034951}
+  backRightArm: {fileID: 302755527}
+  backWeaponSprite: {fileID: 1376079508}
+  backLeftLeg: {fileID: 1060109372}
+  backRightLeg: {fileID: 132156352}
+  backHatSpriteOne: {fileID: 21300000, guid: 49ab222600d43c541a143348c197ae25, type: 3}
+  backHatSpriteTwo: {fileID: 21300000, guid: 1e792d85f757ef343b4d426021e2a4ec, type: 3}
+  backBodyClotheSpriteOne: {fileID: 21300000, guid: 9c0bc9f743b0baf43b524d6c84609437, type: 3}
+  backBodyClotheSpriteTwo: {fileID: 21300000, guid: 6d562248390c0534fbfa2ec9a685cce1, type: 3}
+  backLeftArmClotheSprite: {fileID: 21300000, guid: 4eaaf0bfc2a8d0c4fa58387f5a61b6c6, type: 3}
+  backRightArmClotheSprite: {fileID: 21300000, guid: 0f1615664ecbe37468cba1a06558a9ff, type: 3}
+  backLeftLegClotheSprite: {fileID: 21300000, guid: 25007b264ec66c84e89f2e6893dac475, type: 3}
+  backRightLegClotheSprite: {fileID: 21300000, guid: a75ee8a96e292564b9463ff781e37bcf, type: 3}
+  backLeftArmNakedSprite: {fileID: 21300000, guid: 48662ffde95d9e547b0a98d0969367ac, type: 3}
+  backRightArmNakedSprite: {fileID: 21300000, guid: 281a15ee5a1b6854e8ccbaf6963321d3, type: 3}
+  backLeftLegNakedSprite: {fileID: 21300000, guid: ce01e3247ca81a74caa6546a5bad9980, type: 3}
+  backRightLegNakedSprite: {fileID: 21300000, guid: 3d242a4a61747864283a0b555b301d4e, type: 3}
 --- !u!1 &155667143
 GameObject:
   m_ObjectHideFlags: 0
@@ -1249,6 +1282,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 244995579}
   m_CullTransparentMesh: 1
+--- !u!212 &302755527 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6952635002976070276, guid: a0f5d901c7b30e1479831700dee9b519, type: 3}
+  m_PrefabInstance: {fileID: 2019916809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!212 &319845119 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 1321003461344029040, guid: ac02cff1418e2c545951387c22ebbe50, type: 3}
@@ -4045,6 +4083,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1038456467}
   m_CullTransparentMesh: 1
+--- !u!212 &1060109372 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2778167241733036926, guid: a0f5d901c7b30e1479831700dee9b519, type: 3}
+  m_PrefabInstance: {fileID: 2019916809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1062685786
 GameObject:
   m_ObjectHideFlags: 0
@@ -5799,6 +5842,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363556863}
   m_CullTransparentMesh: 1
+--- !u!212 &1376079508 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5298806762021556025, guid: a0f5d901c7b30e1479831700dee9b519, type: 3}
+  m_PrefabInstance: {fileID: 2019916809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1378188150
 GameObject:
   m_ObjectHideFlags: 0
@@ -6651,6 +6699,11 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!212 &1456677634 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5993338996750650493, guid: a0f5d901c7b30e1479831700dee9b519, type: 3}
+  m_PrefabInstance: {fileID: 2019916809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1458054469
 GameObject:
   m_ObjectHideFlags: 0
@@ -6737,11 +6790,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 141190729}
         m_TargetAssemblyTypeName: ClothesChange, Assembly-CSharp
-        m_MethodName: SetClothe
-        m_Mode: 2
+        m_MethodName: SetClotheTwo
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 193cc8d18792ef54d8faad8054d1b91a, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6928,11 +6981,11 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 141190729}
         m_TargetAssemblyTypeName: ClothesChange, Assembly-CSharp
-        m_MethodName: ChangeHat
-        m_Mode: 2
+        m_MethodName: SetHatOne
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 19302b6ee3393ac4ea8c46c22e690e9a, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7062,11 +7115,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 141190729}
         m_TargetAssemblyTypeName: ClothesChange, Assembly-CSharp
-        m_MethodName: SetClothe
-        m_Mode: 2
+        m_MethodName: SetClotheOne
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 427d867232f3e0c48a9fb135e6c9af1b, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7524,11 +7577,11 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 141190729}
         m_TargetAssemblyTypeName: ClothesChange, Assembly-CSharp
-        m_MethodName: ChangeHat
-        m_Mode: 2
+        m_MethodName: SetHatTwo
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 7621202ce76c34c4ba225b38f2d2d1b6, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -8092,6 +8145,11 @@ SpriteRenderer:
 --- !u!212 &1749378711 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 2888083310796576702, guid: a0f5d901c7b30e1479831700dee9b519, type: 3}
+  m_PrefabInstance: {fileID: 2019916809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1752034951 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4430158745132470924, guid: a0f5d901c7b30e1479831700dee9b519, type: 3}
   m_PrefabInstance: {fileID: 2019916809}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1759849836
@@ -9395,6 +9453,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2017908354768388872, guid: a0f5d901c7b30e1479831700dee9b519, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2396387766831547649, guid: a0f5d901c7b30e1479831700dee9b519, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -9478,6 +9540,10 @@ PrefabInstance:
     - target: {fileID: 4103483062436802848, guid: a0f5d901c7b30e1479831700dee9b519, type: 3}
       propertyPath: m_Layer
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4152559946760730242, guid: a0f5d901c7b30e1479831700dee9b519, type: 3}
+      propertyPath: m_Name
+      value: WeaponSprite
       objectReference: {fileID: 0}
     - target: {fileID: 4152559946760730242, guid: a0f5d901c7b30e1479831700dee9b519, type: 3}
       propertyPath: m_Layer
