@@ -29,6 +29,8 @@ public class UIManager : MonoBehaviour
     public GameObject thePlayer;
     [Tooltip("Reference to the shop button")]
     public GameObject shopButton;
+    [Tooltip("Reference to the dialogue button")]
+    public GameObject dialogueButton;
     [Tooltip("Reference to the shop menu")]
     public GameObject shopMenu;
     [Tooltip("Reference to the shop hat section")]
@@ -377,6 +379,11 @@ public class UIManager : MonoBehaviour
             m_ClothesChange.UnequipItem(currentSelectedObject.currentItemType);
             //Inventory.sharedInstance.RemoveItem(currentSelectedObject);
         }
+    }
+
+    public void SetDialogueButton(bool setValue)
+    {
+        dialogueButton.SetActive(setValue);
     }
 
 }

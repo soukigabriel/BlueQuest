@@ -21,6 +21,7 @@ public class OpenShop : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             UIManager.sharedInstance.ShowShopButton();
+            UIManager.sharedInstance.SetDialogueButton(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -28,6 +29,7 @@ public class OpenShop : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             UIManager.sharedInstance.HideShopButton();
+            UIManager.sharedInstance.SetDialogueButton(false);
         }
     }
 
