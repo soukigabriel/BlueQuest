@@ -53,6 +53,7 @@ public class ClothesChange : MonoBehaviour
     public SpriteRenderer backLeftLeg;
     public SpriteRenderer backRightLeg;
 
+    [Space]
     [Header("Back Clothes Sprites")]
     public Sprite backHatSpriteOne;
     public Sprite backHatSpriteTwo;
@@ -70,30 +71,97 @@ public class ClothesChange : MonoBehaviour
     public Sprite backLeftLegNakedSprite;
     public Sprite backRightLegNakedSprite;
 
+
+    [Space]
+    [Header("Left character reference Sprites")]
+    public SpriteRenderer leftHat;
+    public SpriteRenderer leftBodyClothes;
+    public SpriteRenderer leftLeftArm;
+    public SpriteRenderer leftRightArm;
+    public SpriteRenderer leftWeaponSprite;
+    public SpriteRenderer leftLeftLeg;
+    public SpriteRenderer leftRightLeg;
+
+    [Space]
+    [Header("Left Clothes Sprites")]
+    public Sprite leftHatSpriteOne;
+    public Sprite leftHatSpriteTwo;
+    public Sprite leftBodyClotheSpriteOne;
+    public Sprite leftBodyClotheSpriteTwo;
+    public Sprite leftLeftArmClotheSprite;
+    public Sprite leftRightArmClotheSprite;
+    public Sprite leftLeftLegClotheSprite;
+    public Sprite leftRightLegClotheSprite;
+
+    [Space]
+    [Header("Left Naked Sprites")]
+    public Sprite leftLeftArmNakedSprite;
+    public Sprite leftRightArmNakedSprite;
+    public Sprite leftLeftLegNakedSprite;
+    public Sprite leftRightLegNakedSprite;
+
+
+    [Space]
+    [Header("Right character reference Sprites")]
+    public SpriteRenderer rightHat;
+    public SpriteRenderer rightBodyClothes;
+    public SpriteRenderer rightLeftArm;
+    public SpriteRenderer rightRightArm;
+    public SpriteRenderer rightWeaponSprite;
+    public SpriteRenderer rightLeftLeg;
+    public SpriteRenderer rightRightLeg;
+
+    [Space]
+    [Header("Right Clothes Sprites")]
+    public Sprite rightHatSpriteOne;
+    public Sprite rightHatSpriteTwo;
+    public Sprite rightBodyClotheSpriteOne;
+    public Sprite rightBodyClotheSpriteTwo;
+    public Sprite rightLeftArmClotheSprite;
+    public Sprite rightRightArmClotheSprite;
+    public Sprite rightLeftLegClotheSprite;
+    public Sprite rightRightLegClotheSprite;
+
+    [Space]
+    [Header("Right Naked Sprites")]
+    public Sprite rightLeftArmNakedSprite;
+    public Sprite rightRightArmNakedSprite;
+    public Sprite rightLeftLegNakedSprite;
+    public Sprite rightRightLegNakedSprite;
+
     //Hat
     public void ShowHat()
     {
         frontHat.enabled = true;
         InventoryFrontHat.enabled = true;
         backHat.enabled = true;
+        leftHat.enabled = true;
+        rightHat.enabled = true;
     }
     public void HideHat()
     {
         frontHat.enabled = false;
         InventoryFrontHat.enabled = false;
         backHat.enabled = false;
+        leftHat.enabled = false;
+        rightHat.enabled = false;
     }
     public void SetHatOne()
     {
         frontHat.sprite = frontHatSpriteOne;
         InventoryFrontHat.sprite = frontHatSpriteOne;
         backHat.sprite = backHatSpriteOne;
+        leftHat.sprite = leftHatSpriteOne;
+        rightHat.sprite = rightHatSpriteOne;
     }
+
     public void SetHatTwo()
     {
         frontHat.sprite = frontHatSpriteTwo;
         InventoryFrontHat.sprite = frontHatSpriteTwo;
         backHat.sprite = backHatSpriteTwo;
+        leftHat.sprite = leftHatSpriteTwo;
+        rightHat.sprite = rightHatSpriteTwo;
     }
 
 
@@ -120,6 +188,20 @@ public class ClothesChange : MonoBehaviour
         backRightArm.sprite = backRightArmClotheSprite;
         backLeftLeg.sprite = backLeftLegClotheSprite;
         backRightLeg.sprite = backRightLegClotheSprite;
+
+        //Show left character clothe
+        leftBodyClothes.enabled = true;
+        leftLeftArm.sprite = leftLeftArmClotheSprite;
+        leftRightArm.sprite = leftRightArmClotheSprite;
+        leftLeftLeg.sprite = leftLeftLegClotheSprite;
+        leftRightLeg.sprite = leftRightLegClotheSprite;
+
+        //Show right character clothe
+        rightBodyClothes.enabled = true;
+        rightLeftArm.sprite = rightLeftArmClotheSprite;
+        rightRightArm.sprite = rightRightArmClotheSprite;
+        rightLeftLeg.sprite = rightLeftLegClotheSprite;
+        rightRightLeg.sprite = rightRightLegClotheSprite;
     }
     public void HideClothe()
     {
@@ -144,6 +226,20 @@ public class ClothesChange : MonoBehaviour
         backLeftLeg.sprite = backLeftLegNakedSprite;
         backRightLeg.sprite = backRightLegNakedSprite;
 
+        //Hide left character clothe
+        leftBodyClothes.enabled = false;
+        leftLeftArm.sprite = leftLeftArmNakedSprite;
+        leftRightArm.sprite = leftRightArmNakedSprite;
+        leftLeftLeg.sprite = leftLeftLegNakedSprite;
+        leftRightLeg.sprite = leftRightLegNakedSprite;
+
+        //Hide right character clothe
+        rightBodyClothes.enabled = false;
+        rightLeftArm.sprite = rightLeftArmNakedSprite;
+        rightRightArm.sprite = rightRightArmNakedSprite;
+        rightLeftLeg.sprite = rightLeftLegNakedSprite;
+        rightRightLeg.sprite = rightRightLegNakedSprite;
+
     }
     public void SetClotheOne()
     {
@@ -151,6 +247,8 @@ public class ClothesChange : MonoBehaviour
         frontBodyClothes.sprite = frontBodyClotheSpriteOne;
         InventoryFrontBodyClothes.sprite = frontBodyClotheSpriteOne;
         backBodyClothes.sprite = backBodyClotheSpriteOne;
+        leftBodyClothes.sprite = leftBodyClotheSpriteOne;
+        rightBodyClothes.sprite = rightBodyClotheSpriteOne;
     }
 
     public void SetClotheTwo()
@@ -159,6 +257,8 @@ public class ClothesChange : MonoBehaviour
         frontBodyClothes.sprite = frontBodyClotheSpriteTwo;
         InventoryFrontBodyClothes.sprite = frontBodyClotheSpriteTwo;
         backBodyClothes.sprite = backBodyClotheSpriteTwo;
+        leftBodyClothes.sprite = leftBodyClotheSpriteTwo;
+        rightBodyClothes.sprite = rightBodyClotheSpriteTwo;
     }
 
     public void ShowWeapon()
@@ -166,6 +266,8 @@ public class ClothesChange : MonoBehaviour
         frontWeaponSprite.enabled = true;
         InventoryWeaponSprite.enabled = true;
         backWeaponSprite.enabled = true;
+        leftWeaponSprite.enabled = true;
+        rightWeaponSprite.enabled = true;
     }
 
     public void HideWeapon()
@@ -173,6 +275,8 @@ public class ClothesChange : MonoBehaviour
         frontWeaponSprite.enabled = false;
         InventoryWeaponSprite.enabled = false;
         backWeaponSprite.enabled = false;
+        leftWeaponSprite.enabled = false;
+        rightWeaponSprite.enabled = false;
     }
 
     public void SetWeapon(Sprite newWeaponSprite)
@@ -181,5 +285,7 @@ public class ClothesChange : MonoBehaviour
         frontWeaponSprite.sprite = newWeaponSprite;
         InventoryWeaponSprite.sprite = newWeaponSprite;
         backWeaponSprite.sprite = newWeaponSprite;
+        leftWeaponSprite.sprite = newWeaponSprite;
+        rightWeaponSprite.sprite = newWeaponSprite;
     }
 }
