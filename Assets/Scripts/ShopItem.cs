@@ -12,9 +12,28 @@ public class ShopItem : MonoBehaviour
     public GameObject myPriceObject;
     public GameObject mySoldObject;
     public TMP_Text priceText;
+    public GameObject m_InventoryItem;
+
+    public bool HaveBeenSold
+    {
+        get => haveBeenSold;
+        set
+        {
+            haveBeenSold = value;
+            if(value == true)
+            {
+                m_InventoryItem.SetActive(true);
+            }
+            else
+            {
+                m_InventoryItem.SetActive(false);
+            }
+        }
+    }
 
     private void Start()
     {
+        HaveBeenSold = haveBeenSold;
         priceText.text = price.ToString();
     }
 

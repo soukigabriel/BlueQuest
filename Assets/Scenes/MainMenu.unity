@@ -1302,6 +1302,7 @@ MonoBehaviour:
   myPriceObject: {fileID: 1396994378}
   mySoldObject: {fileID: 588752512}
   priceText: {fileID: 1557706529}
+  m_InventoryItem: {fileID: 1534510191}
 --- !u!1 &227718022
 GameObject:
   m_ObjectHideFlags: 0
@@ -2929,6 +2930,7 @@ MonoBehaviour:
   myPriceObject: {fileID: 1064522701}
   mySoldObject: {fileID: 376061448}
   priceText: {fileID: 761550890}
+  m_InventoryItem: {fileID: 2070962902}
 --- !u!114 &643203469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5711,9 +5713,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a463c0491f3e0642bb04a87a219bbca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryHats: []
-  inventoryClothes: []
-  inventoryWeapons: []
 --- !u!1 &1129189080
 GameObject:
   m_ObjectHideFlags: 0
@@ -6473,6 +6472,7 @@ MonoBehaviour:
   myPriceObject: {fileID: 1379324748}
   mySoldObject: {fileID: 864610591}
   priceText: {fileID: 1144937528}
+  m_InventoryItem: {fileID: 1196662359}
 --- !u!1 &1213341197
 GameObject:
   m_ObjectHideFlags: 0
@@ -6704,6 +6704,7 @@ MonoBehaviour:
   myPriceObject: {fileID: 2122177470}
   mySoldObject: {fileID: 1716406096}
   priceText: {fileID: 907043940}
+  m_InventoryItem: {fileID: 1629770826}
 --- !u!212 &1263974175 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 1635880731692507891, guid: a0f5d901c7b30e1479831700dee9b519, type: 3}
@@ -8280,7 +8281,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1458054470
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8459,7 +8460,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1492244416
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9128,6 +9129,7 @@ MonoBehaviour:
   myPriceObject: {fileID: 1529528488}
   mySoldObject: {fileID: 213187497}
   priceText: {fileID: 333272333}
+  m_InventoryItem: {fileID: 1458054469}
 --- !u!114 &1596041065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9286,7 +9288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1629770827
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11205,6 +11207,7 @@ MonoBehaviour:
   myPriceObject: {fileID: 1778591992}
   mySoldObject: {fileID: 1817228856}
   priceText: {fileID: 395272452}
+  m_InventoryItem: {fileID: 1492244415}
 --- !u!1 &1999041470
 GameObject:
   m_ObjectHideFlags: 0
@@ -12212,7 +12215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2070962903
 RectTransform:
   m_ObjectHideFlags: 0

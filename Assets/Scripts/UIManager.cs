@@ -198,7 +198,7 @@ public class UIManager : MonoBehaviour
 
     bool ItemHaveBeenSold(ShopItem item)
     {
-        if (item.haveBeenSold)
+        if (item.HaveBeenSold)
         {
             return true;
         }
@@ -356,12 +356,12 @@ public class UIManager : MonoBehaviour
         if (currentSelectedObject.GetPrice() <= Economy.sharedInstance.CurrentMoney && !currentSelectedObject.haveBeenSold)
         {
             Economy.sharedInstance.CurrentMoney -= currentSelectedObject.GetPrice();
-            currentSelectedObject.haveBeenSold = true;
+            currentSelectedObject.HaveBeenSold = true;
             SetBuyButton(false);
             SetSellButton(true);
             currentSelectedObject.ShowPrice(false);
             m_ClothesChange.EquipItem(currentSelectedObject.currentItemType);
-            Inventory.sharedInstance.AddItem(currentSelectedObject);
+            //Inventory.sharedInstance.AddItem(currentSelectedObject);
         }
     }
 
@@ -370,12 +370,12 @@ public class UIManager : MonoBehaviour
         if(currentSelectedObject.haveBeenSold)
         {
             Economy.sharedInstance.CurrentMoney += currentSelectedObject.GetPrice();
-            currentSelectedObject.haveBeenSold = false;
+            currentSelectedObject.HaveBeenSold = false;
             SetBuyButton(true);
             SetSellButton(false);
             currentSelectedObject.ShowPrice(true);
             m_ClothesChange.UnequipItem(currentSelectedObject.currentItemType);
-            Inventory.sharedInstance.RemoveItem(currentSelectedObject);
+            //Inventory.sharedInstance.RemoveItem(currentSelectedObject);
         }
     }
 
