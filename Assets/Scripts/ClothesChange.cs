@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ClothesChange : MonoBehaviour
 {
-
+    //The sprites that will be applied to the front of the character when the clothes are selected
     [Header("Front Clothes Sprites")]
     public Sprite frontHatSpriteOne;
     public Sprite frontHatSpriteTwo;
@@ -15,6 +15,7 @@ public class ClothesChange : MonoBehaviour
     public Sprite frontLeftLegClotheSprite;
     public Sprite frontRightLegClotheSprite;
 
+    //The sprites that will be applied to the front of the character when the clothes are deselected
     [Space]
     [Header("Front Naked Sprites")]
     public Sprite frontLeftArmNakedSprite;
@@ -22,6 +23,7 @@ public class ClothesChange : MonoBehaviour
     public Sprite frontLeftLegNakedSprite;
     public Sprite frontRightLegNakedSprite;
 
+    //The sprites of each part of the front of the current character
     [Space]
     [Header("Front character reference Sprites")]
     public SpriteRenderer frontHat;
@@ -32,6 +34,7 @@ public class ClothesChange : MonoBehaviour
     public SpriteRenderer frontLeftLeg;
     public SpriteRenderer frontRightLeg;
 
+    //The sprites of each part of the UI character
     [Space]
     [Header("UI character Sprites")]
     public SpriteRenderer InventoryFrontHat;
@@ -43,6 +46,7 @@ public class ClothesChange : MonoBehaviour
     public SpriteRenderer InventoryFrontRightLeg;
 
 
+    //The sprites of each part of the back of the current character
     [Space]
     [Header("Back character reference Sprites")]
     public SpriteRenderer backHat;
@@ -53,6 +57,7 @@ public class ClothesChange : MonoBehaviour
     public SpriteRenderer backLeftLeg;
     public SpriteRenderer backRightLeg;
 
+    //The sprites that will be applied to the back of the character when the clothes are selected
     [Space]
     [Header("Back Clothes Sprites")]
     public Sprite backHatSpriteOne;
@@ -64,6 +69,7 @@ public class ClothesChange : MonoBehaviour
     public Sprite backLeftLegClotheSprite;
     public Sprite backRightLegClotheSprite;
 
+    //The sprites that will be applied to the back of the character when the clothes are deselected
     [Space]
     [Header("Back Naked Sprites")]
     public Sprite backLeftArmNakedSprite;
@@ -72,6 +78,7 @@ public class ClothesChange : MonoBehaviour
     public Sprite backRightLegNakedSprite;
 
 
+    //The sprites of each part of the left of the current character
     [Space]
     [Header("Left character reference Sprites")]
     public SpriteRenderer leftHat;
@@ -82,6 +89,7 @@ public class ClothesChange : MonoBehaviour
     public SpriteRenderer leftLeftLeg;
     public SpriteRenderer leftRightLeg;
 
+    //The sprites that will be applied to the left of the character when the clothes are selected
     [Space]
     [Header("Left Clothes Sprites")]
     public Sprite leftHatSpriteOne;
@@ -93,6 +101,7 @@ public class ClothesChange : MonoBehaviour
     public Sprite leftLeftLegClotheSprite;
     public Sprite leftRightLegClotheSprite;
 
+    //The sprites that will be applied to the left of the character when the clothes are deselected
     [Space]
     [Header("Left Naked Sprites")]
     public Sprite leftLeftArmNakedSprite;
@@ -101,6 +110,7 @@ public class ClothesChange : MonoBehaviour
     public Sprite leftRightLegNakedSprite;
 
 
+    //The sprites of each part of the right of the current character
     [Space]
     [Header("Right character reference Sprites")]
     public SpriteRenderer rightHat;
@@ -111,6 +121,7 @@ public class ClothesChange : MonoBehaviour
     public SpriteRenderer rightLeftLeg;
     public SpriteRenderer rightRightLeg;
 
+    //The sprites that will be applied to the right of the character when the clothes are selected
     [Space]
     [Header("Right Clothes Sprites")]
     public Sprite rightHatSpriteOne;
@@ -122,6 +133,7 @@ public class ClothesChange : MonoBehaviour
     public Sprite rightLeftLegClotheSprite;
     public Sprite rightRightLegClotheSprite;
 
+    //The sprites that will be applied to the right of the character when the clothes are deselected
     [Space]
     [Header("Right Naked Sprites")]
     public Sprite rightLeftArmNakedSprite;
@@ -129,9 +141,10 @@ public class ClothesChange : MonoBehaviour
     public Sprite rightLeftLegNakedSprite;
     public Sprite rightRightLegNakedSprite;
 
-    //Hat
+    //Hat methods
     public void ShowHat()
     {
+        //Enable all the hat gameobjects
         frontHat.enabled = true;
         InventoryFrontHat.enabled = true;
         backHat.enabled = true;
@@ -140,6 +153,7 @@ public class ClothesChange : MonoBehaviour
     }
     public void HideHat()
     {
+        //Enable all the hat gameobject
         frontHat.enabled = false;
         InventoryFrontHat.enabled = false;
         backHat.enabled = false;
@@ -148,15 +162,16 @@ public class ClothesChange : MonoBehaviour
     }
     public void SetHatOne()
     {
+        //Change the current hat sprite with the Hat 1 sprite
         frontHat.sprite = frontHatSpriteOne;
         InventoryFrontHat.sprite = frontHatSpriteOne;
         backHat.sprite = backHatSpriteOne;
         leftHat.sprite = leftHatSpriteOne;
         rightHat.sprite = rightHatSpriteOne;
     }
-
     public void SetHatTwo()
     {
+        //Change the current hat sprite with the Hat 2 sprite
         frontHat.sprite = frontHatSpriteTwo;
         InventoryFrontHat.sprite = frontHatSpriteTwo;
         backHat.sprite = backHatSpriteTwo;
@@ -165,7 +180,7 @@ public class ClothesChange : MonoBehaviour
     }
 
 
-    //Clothes
+    //Clothes methods
     public void ShowClothe()
     {
         //Show front character clothe
@@ -243,6 +258,7 @@ public class ClothesChange : MonoBehaviour
     }
     public void SetClotheOne()
     {
+        //Show the clothes and then change the current sprites of the character with the clothes 1
         ShowClothe();
         frontBodyClothes.sprite = frontBodyClotheSpriteOne;
         InventoryFrontBodyClothes.sprite = frontBodyClotheSpriteOne;
@@ -253,6 +269,7 @@ public class ClothesChange : MonoBehaviour
 
     public void SetClotheTwo()
     {
+        //Show the clothes and then change the current sprites of the character with the clothes 2
         ShowClothe();
         frontBodyClothes.sprite = frontBodyClotheSpriteTwo;
         InventoryFrontBodyClothes.sprite = frontBodyClotheSpriteTwo;
@@ -261,8 +278,10 @@ public class ClothesChange : MonoBehaviour
         rightBodyClothes.sprite = rightBodyClotheSpriteTwo;
     }
 
+    //Weapon methods
     public void ShowWeapon()
     {
+        //Enable every weapon of the character
         frontWeaponSprite.enabled = true;
         InventoryWeaponSprite.enabled = true;
         backWeaponSprite.enabled = true;
@@ -272,15 +291,16 @@ public class ClothesChange : MonoBehaviour
 
     public void HideWeapon()
     {
+        //Disable every weapon of the character
         frontWeaponSprite.enabled = false;
         InventoryWeaponSprite.enabled = false;
         backWeaponSprite.enabled = false;
         leftWeaponSprite.enabled = false;
         rightWeaponSprite.enabled = false;
     }
-
     public void SetWeapon(Sprite newWeaponSprite)
     {
+        //Show the weapon and then change it's current sprite with a new one passed through parameter
         ShowWeapon();
         frontWeaponSprite.sprite = newWeaponSprite;
         InventoryWeaponSprite.sprite = newWeaponSprite;

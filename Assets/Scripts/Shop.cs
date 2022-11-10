@@ -18,16 +18,18 @@ public class Shop : MonoBehaviour
         }
     }
 
+    //When enabled attach the OpenShop method to the EnterShop event
     private void OnEnable()
     {
         UIManager.EnterShop += OpenShop;
     }
-
+    //When enabled detach the OpenShop method to the EnterShop event
     private void OnDisable()
     {
         UIManager.EnterShop -= OpenShop;
     }
 
+    //The player will only be available to open the shop if he is in the shop zone through the shop button
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
@@ -35,7 +37,6 @@ public class Shop : MonoBehaviour
             UIManager.sharedInstance.ShowShopButton();
         }
     }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))

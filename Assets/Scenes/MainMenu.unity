@@ -9760,6 +9760,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8049628657713291500, guid: a0f5d901c7b30e1479831700dee9b519, type: 3}
+      propertyPath: lastMovement.y
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 8259523649381636745, guid: a0f5d901c7b30e1479831700dee9b519, type: 3}
       propertyPath: m_Name
       value: WeaponSprite

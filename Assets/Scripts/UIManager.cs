@@ -6,27 +6,48 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    [Tooltip("Shared instance of the UI manager")]
     public static UIManager sharedInstance;
+
+    [Tooltip("Main delegate of the UI")]
     public delegate void UIDelegate();
+    [Tooltip("Event that will be triggered when the shop is opened")]
     public static event UIDelegate EnterShop;
+    [Tooltip("Event that will be triggered when the shop is closed")]
     public static event UIDelegate ExitShop;
+    [Tooltip("Event that will be triggered when the inventory is opened")]
     public static event UIDelegate EnterInventory;
+    [Tooltip("Event that will be triggered when the inventory is closed")]
     public static event UIDelegate ExitInventory;
 
+    [Tooltip("Name of the main scene")]
     public string mainSceneName = "Main scene name here";
-    public GameObject thePlayer;
 
-    //References to UI
+    [Space]
+    [Header("References to game objects")]
+    [Tooltip("Reference to the player")]
+    public GameObject thePlayer;
+    [Tooltip("Reference to the shop button")]
     public GameObject shopButton;
+    [Tooltip("Reference to the shop menu")]
     public GameObject shopMenu;
+    [Tooltip("Reference to the shop hat section")]
     public GameObject shopHatSection;
+    [Tooltip("Reference to the shop clothe section")]
     public GameObject shopClotheSection;
+    [Tooltip("Reference to the shop weapon section")]
     public GameObject shopWeaponSection;
+    [Tooltip("Reference to the shop inventory hat section")]
     public GameObject inventoryHatSection;
+    [Tooltip("Reference to the shop inventory clothes section")]
     public GameObject inventoryClotheSection;
+    [Tooltip("Reference to the shop inventory weapon section")]
     public GameObject inventoryWeaponSection;
+    [Tooltip("Reference to the main menu")]
     public GameObject mainMenu;
+    [Tooltip("Reference to the inventory menu")]
     public GameObject inventoryMenu;
+    [Tooltip("Reference to the HUD")]
     public GameObject HUD;
 
     private void Awake()
@@ -43,14 +64,21 @@ public class UIManager : MonoBehaviour
         mainMenu.SetActive(true);
     }
 
+    //This method is called by the Play button in the main menu and starts the game
     public void PlayButton()
     {
+
+        //Change this to a event that will trigger when the game starts
         thePlayer.SetActive(true);
+
+
         HideMainMenu();
         ShowHUD();
         SceneManager.LoadScene(mainSceneName);
     }
 
+
+    //This method is called by the Exit button in the main menu and exits the game
     public void ExitButton()
     {
 #if UNITY_EDITOR
@@ -100,6 +128,7 @@ public class UIManager : MonoBehaviour
         shopMenu.SetActive(false);
     }
 
+    //Open the shop and change the game state to shoping
     public void OpenShop()
     {
         ShowShopMenu();
@@ -107,6 +136,7 @@ public class UIManager : MonoBehaviour
         EnterShop?.Invoke();
     }
 
+    //Close the shop and change the game state to inGame
     public void CloseShop()
     {
         HideShopMenu();
@@ -114,6 +144,7 @@ public class UIManager : MonoBehaviour
         ExitShop?.Invoke();
     }
 
+    //Open the Inventory and change the game state to inventory
     public void OpenInventory()
     {
         HideHUD();
@@ -121,6 +152,7 @@ public class UIManager : MonoBehaviour
         EnterInventory?.Invoke();
     }
 
+    //Close the Inventory and change the game state to inGame
     public void CloseInventory()
     {
         ShowHUD();
@@ -128,6 +160,7 @@ public class UIManager : MonoBehaviour
         ExitInventory?.Invoke();
     }
 
+    //Change the current section of the shop menu to the hat section
     public void ShowShopHatSection()
     {
         shopHatSection.SetActive(true);
@@ -140,6 +173,7 @@ public class UIManager : MonoBehaviour
         shopHatSection.SetActive(false);
     }
 
+    //Change the current section of the shop menu to the clothes section
     public void ShowShopClotheSection()
     {
         shopClotheSection.SetActive(true);
@@ -152,6 +186,7 @@ public class UIManager : MonoBehaviour
         shopClotheSection.SetActive(false);
     }
 
+    //Change the current section of the shop menu to the weapon section
     public void ShowShopWeaponSection()
     {
         shopWeaponSection.SetActive(true);
@@ -173,7 +208,8 @@ public class UIManager : MonoBehaviour
     {
         inventoryMenu.SetActive(false);
     }
-
+    
+    //Change the current section of the inventory menu to the hat section
     public void ShowInventoryHatSection()
     {
         inventoryHatSection.SetActive(true);
@@ -186,6 +222,7 @@ public class UIManager : MonoBehaviour
         inventoryHatSection.SetActive(false);
     }
 
+    //Change the current section of the inventory menu to the clothes section
     public void ShowInventoryClotheSection()
     {
         inventoryClotheSection.SetActive(true);
@@ -198,6 +235,7 @@ public class UIManager : MonoBehaviour
         inventoryClotheSection.SetActive(false);
     }
 
+    //Change the current section of the inventory menu to the weapon section
     public void ShowInventoryWeaponSection()
     {
         inventoryWeaponSection.SetActive(true);
