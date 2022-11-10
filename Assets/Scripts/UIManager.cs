@@ -49,10 +49,27 @@ public class UIManager : MonoBehaviour
     public GameObject inventoryMenu;
     [Tooltip("Reference to the HUD")]
     public GameObject HUD;
+    [Tooltip("Reference to the UI character camera")]
+    public GameObject UICharacterCamera;
+    public GameObject sellButton;
+    public GameObject buyButton;
+
+    [SerializeField] ShopItem currentSelectedObject;
+
+    [SerializeField] ClothesChange m_ClothesChange;
+
+    /*
+     * 
+     * ToDo: Conseguir los elementos de estas listas de manera dinamica consiguiendo los hijos con contengan el script ShopItem de cada sección
+     * 
+     */
+    [SerializeField] List<ShopItem> hatItems = new List<ShopItem>();
+    [SerializeField] List<ShopItem> clothesItems = new List<ShopItem>();
+    [SerializeField] List<ShopItem> weaponItems = new List<ShopItem>();
 
     private void Awake()
     {
-        if(sharedInstance == null)
+        if (sharedInstance == null)
         {
             sharedInstance = this;
         }
@@ -86,6 +103,16 @@ public class UIManager : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+    void ShowUICharacterCamera()
+    {
+        UICharacterCamera.SetActive(true);
+    }
+
+    void HideUICharacterCamera()
+    {
+        UICharacterCamera.SetActive(false);
     }
 
     public void ShowMainMenu()
@@ -131,14 +158,20 @@ public class UIManager : MonoBehaviour
     //Open the shop and change the game state to shoping
     public void OpenShop()
     {
+        ShowUICharacterCamera();
         ShowShopMenu();
         HideHUD();
         EnterShop?.Invoke();
+        ShowShopHatSection();
+        SetBuyButton(false);
+        SetSellButton(false);
+        currentSelectedObject = null;
     }
 
     //Close the shop and change the game state to inGame
     public void CloseShop()
     {
+        HideUICharacterCamera();
         HideShopMenu();
         ShowHUD();
         ExitShop?.Invoke();
@@ -147,25 +180,61 @@ public class UIManager : MonoBehaviour
     //Open the Inventory and change the game state to inventory
     public void OpenInventory()
     {
+        ShowUICharacterCamera();
         HideHUD();
         ShowInventory();
         EnterInventory?.Invoke();
+        ShowInventoryHatSection();
     }
 
     //Close the Inventory and change the game state to inGame
     public void CloseInventory()
     {
+        HideUICharacterCamera();
         ShowHUD();
         HideInventory();
         ExitInventory?.Invoke();
     }
 
+    bool ItemHaveBeenSold(ShopItem item)
+    {
+        if (item.haveBeenSold)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    void SetPriceObject(List<ShopItem> itemList)
+    {
+        foreach (ShopItem item in itemList)
+        {
+            if (ItemHaveBeenSold(item))
+            {
+                item.myPriceObject.SetActive(false);
+                item.mySoldObject.SetActive(true);
+            }
+            else
+            {
+                item.myPriceObject.SetActive(true);
+                item.mySoldObject.SetActive(false);
+            }
+        }
+    }
+
     //Change the current section of the shop menu to the hat section
     public void ShowShopHatSection()
     {
+        SetBuyButton(false);
+        SetSellButton(false);
+        currentSelectedObject = null;
         shopHatSection.SetActive(true);
         HideShopClotheSection();
         HideShopWeaponSection();
+        SetPriceObject(hatItems);
     }
 
     public void HideShopHatSection()
@@ -176,9 +245,13 @@ public class UIManager : MonoBehaviour
     //Change the current section of the shop menu to the clothes section
     public void ShowShopClotheSection()
     {
+        SetBuyButton(false);
+        SetSellButton(false);
+        currentSelectedObject = null;
         shopClotheSection.SetActive(true);
         HideShopHatSection();
         HideShopWeaponSection();
+        SetPriceObject(clothesItems);
     }
 
     public void HideShopClotheSection()
@@ -189,9 +262,13 @@ public class UIManager : MonoBehaviour
     //Change the current section of the shop menu to the weapon section
     public void ShowShopWeaponSection()
     {
+        SetBuyButton(false);
+        SetSellButton(false);
+        currentSelectedObject = null;
         shopWeaponSection.SetActive(true);
         HideShopHatSection();
         HideShopClotheSection();
+        SetPriceObject(weaponItems);
     }
 
     public void HideShopWeaponSection()
@@ -208,7 +285,7 @@ public class UIManager : MonoBehaviour
     {
         inventoryMenu.SetActive(false);
     }
-    
+
     //Change the current section of the inventory menu to the hat section
     public void ShowInventoryHatSection()
     {
@@ -246,6 +323,60 @@ public class UIManager : MonoBehaviour
     public void HideInventoryWeaponSection()
     {
         inventoryWeaponSection.SetActive(false);
+    }
+
+    void SetBuyButton(bool newValue)
+    {
+        buyButton.SetActive(newValue);
+    }
+
+    void SetSellButton(bool newValue)
+    {
+        sellButton.SetActive(newValue);
+    }
+
+    public void SetCurrentSelectedObject(ShopItem selectedObject)
+    {
+        currentSelectedObject = selectedObject;
+        if (!currentSelectedObject.haveBeenSold)
+        {
+            SetBuyButton(true);
+            SetSellButton(false);
+        }
+        else
+        {
+            m_ClothesChange.EquipItem(currentSelectedObject.currentItemType);
+            SetBuyButton(false);
+            SetSellButton(true);
+        }
+    }
+
+    public void BuyItem()
+    {
+        if (currentSelectedObject.GetPrice() <= Economy.sharedInstance.CurrentMoney && !currentSelectedObject.haveBeenSold)
+        {
+            Economy.sharedInstance.CurrentMoney -= currentSelectedObject.GetPrice();
+            currentSelectedObject.haveBeenSold = true;
+            SetBuyButton(false);
+            SetSellButton(true);
+            currentSelectedObject.ShowPrice(false);
+            m_ClothesChange.EquipItem(currentSelectedObject.currentItemType);
+            Inventory.sharedInstance.AddItem(currentSelectedObject);
+        }
+    }
+
+    public void SellItem()
+    {
+        if(currentSelectedObject.haveBeenSold)
+        {
+            Economy.sharedInstance.CurrentMoney += currentSelectedObject.GetPrice();
+            currentSelectedObject.haveBeenSold = false;
+            SetBuyButton(true);
+            SetSellButton(false);
+            currentSelectedObject.ShowPrice(true);
+            m_ClothesChange.UnequipItem(currentSelectedObject.currentItemType);
+            Inventory.sharedInstance.RemoveItem(currentSelectedObject);
+        }
     }
 
 }

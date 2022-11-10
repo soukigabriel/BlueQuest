@@ -4,49 +4,37 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
+    //public static string hatOne = "Hat One";
+    //public static string hatTwo = "Hat Two";
+    //public static string clotheOne = "Clothe One";
+    //public static string clotheTwo = "Clothe Two";
+    //public static string swordOne = "Sword One";
+    //public static string swordTwo = "Sword Two";
+
+    //[Tooltip("Stores the list of items in the shop and if they have been purchased")]
+    //public static Dictionary<string, bool> shopItems = new Dictionary<string, bool>();
+
+
     public static Shop sharedInstance;
 
     private void Awake()
     {
-        if(sharedInstance == null)
-        {
-            sharedInstance = this;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
+        //if(sharedInstance == null)
+        //{
+        //    sharedInstance = this;
+        //}
+        //else
+        //{
+        //    Destroy(this.gameObject);
+        //}
+
+        //shopItems.Add(hatOne, false);
+        //shopItems.Add(hatTwo, false);
+        //shopItems.Add(clotheOne, true);
+        //shopItems.Add(clotheTwo, false);
+        //shopItems.Add(swordOne, true);
+        //shopItems.Add(swordTwo, false);
     }
 
-    //When enabled attach the OpenShop method to the EnterShop event
-    private void OnEnable()
-    {
-        UIManager.EnterShop += OpenShop;
-    }
-    //When enabled detach the OpenShop method to the EnterShop event
-    private void OnDisable()
-    {
-        UIManager.EnterShop -= OpenShop;
-    }
-
-    //The player will only be available to open the shop if he is in the shop zone through the shop button
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.CompareTag("Player"))
-        {
-            UIManager.sharedInstance.ShowShopButton();
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.CompareTag("Player"))
-        {
-            UIManager.sharedInstance.HideShopButton();
-        }
-    }
-
-    public void OpenShop()
-    {
-        
-    }
+    
 }

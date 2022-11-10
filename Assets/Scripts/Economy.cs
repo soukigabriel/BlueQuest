@@ -5,6 +5,8 @@ using TMPro;
 
 public class Economy : MonoBehaviour
 {
+    public static Economy sharedInstance;
+
     [Header("Economy variables")]
     [Tooltip("Initial money that will have the player at the start of the game")]
     public int initialMoney;
@@ -26,13 +28,20 @@ public class Economy : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        if(sharedInstance == null)
+        {
+            sharedInstance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     private void Start()
     {
         CurrentMoney = initialMoney;
-    }
-
-    public void ManageMoney(int value)
-    {
-        currentMoney += value;
     }
 }

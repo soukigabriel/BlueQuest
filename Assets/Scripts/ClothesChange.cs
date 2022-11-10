@@ -141,6 +141,68 @@ public class ClothesChange : MonoBehaviour
     public Sprite rightLeftLegNakedSprite;
     public Sprite rightRightLegNakedSprite;
 
+    public Sprite swordOneSprite;
+    public Sprite swordTwoSprite;
+
+
+
+    public void EquipItem(ItemType theItem)
+    {
+        switch (theItem)
+        {
+            case ItemType.HatOne:
+                SetHatOne();
+                break;
+            case ItemType.HatTwo:
+                SetHatTwo();
+                break;
+            case ItemType.ClothesOne:
+                SetClotheOne();
+                break;
+            case ItemType.ClothesTwo:
+                SetClotheTwo();
+                break;
+            case ItemType.SwordOne:
+                SetWeaponOne();
+                break;
+            case ItemType.SwordTwo:
+                SetWeaponTwo();
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    public void UnequipItem(ItemType theItem)
+    {
+        switch (theItem)
+        {
+            case ItemType.HatOne:
+                HideHat();
+                break;
+            case ItemType.HatTwo:
+                HideHat();
+                break;
+            case ItemType.ClothesOne:
+                HideClothe();
+                break;
+            case ItemType.ClothesTwo:
+                HideClothe();
+                break;
+            case ItemType.SwordOne:
+                HideWeapon();
+                break;
+            case ItemType.SwordTwo:
+                HideWeapon();
+                break;
+
+            default:
+                break;
+        }
+    }
+
+
     //Hat methods
     public void ShowHat()
     {
@@ -162,6 +224,7 @@ public class ClothesChange : MonoBehaviour
     }
     public void SetHatOne()
     {
+        ShowHat();
         //Change the current hat sprite with the Hat 1 sprite
         frontHat.sprite = frontHatSpriteOne;
         InventoryFrontHat.sprite = frontHatSpriteOne;
@@ -171,6 +234,7 @@ public class ClothesChange : MonoBehaviour
     }
     public void SetHatTwo()
     {
+        ShowHat();
         //Change the current hat sprite with the Hat 2 sprite
         frontHat.sprite = frontHatSpriteTwo;
         InventoryFrontHat.sprite = frontHatSpriteTwo;
@@ -298,14 +362,24 @@ public class ClothesChange : MonoBehaviour
         leftWeaponSprite.enabled = false;
         rightWeaponSprite.enabled = false;
     }
-    public void SetWeapon(Sprite newWeaponSprite)
+    public void SetWeaponOne()
     {
         //Show the weapon and then change it's current sprite with a new one passed through parameter
         ShowWeapon();
-        frontWeaponSprite.sprite = newWeaponSprite;
-        InventoryWeaponSprite.sprite = newWeaponSprite;
-        backWeaponSprite.sprite = newWeaponSprite;
-        leftWeaponSprite.sprite = newWeaponSprite;
-        rightWeaponSprite.sprite = newWeaponSprite;
+        frontWeaponSprite.sprite = swordOneSprite;
+        InventoryWeaponSprite.sprite = swordOneSprite;
+        backWeaponSprite.sprite = swordOneSprite;
+        leftWeaponSprite.sprite = swordOneSprite;
+        rightWeaponSprite.sprite = swordOneSprite;
+    }
+    public void SetWeaponTwo()
+    {
+        //Show the weapon and then change it's current sprite with a new one passed through parameter
+        ShowWeapon();
+        frontWeaponSprite.sprite = swordTwoSprite;
+        InventoryWeaponSprite.sprite = swordTwoSprite;
+        backWeaponSprite.sprite = swordTwoSprite;
+        leftWeaponSprite.sprite = swordTwoSprite;
+        rightWeaponSprite.sprite = swordTwoSprite;
     }
 }
