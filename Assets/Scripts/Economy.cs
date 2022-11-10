@@ -16,6 +16,7 @@ public class Economy : MonoBehaviour
     [Space]
     [Header("UI related to the economy")]
     public TMP_Text shopMoneyText;
+    public TMP_Text HUDMoneyText;
 
     [Tooltip("This property allow us to manage the currentMoney and trigger events when it's value is modified")]
     public int CurrentMoney
@@ -25,6 +26,8 @@ public class Economy : MonoBehaviour
         {
             currentMoney = value;
             shopMoneyText.text = currentMoney.ToString();
+            HUDMoneyText.text = currentMoney.ToString();
+
         }
     }
 
