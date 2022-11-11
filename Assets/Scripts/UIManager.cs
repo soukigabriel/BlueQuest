@@ -22,6 +22,8 @@ public class UIManager : MonoBehaviour
 
     [Tooltip("Name of the main scene")]
     public string mainSceneName = "Main scene name here";
+    [Tooltip("Name of the main menu scene")]
+    public string mainMenuName = "Main menu name here";
 
     [Space]
     [Header("References to game objects")]
@@ -49,12 +51,16 @@ public class UIManager : MonoBehaviour
     public GameObject mainMenu;
     [Tooltip("Reference to the inventory menu")]
     public GameObject inventoryMenu;
+    [Tooltip("Reference to the pause menu")]
+    public GameObject pauseMenu;
     [Tooltip("Reference to the HUD")]
     public GameObject HUD;
     [Tooltip("Reference to the UI character camera")]
     public GameObject UICharacterCamera;
     public GameObject sellButton;
     public GameObject buyButton;
+    public GameObject dialogBox;
+    const string mainSceneSpawnName = "MainScene";
 
     [SerializeField] ShopItem currentSelectedObject;
 
@@ -86,14 +92,22 @@ public class UIManager : MonoBehaviour
     //This method is called by the Play button in the main menu and starts the game
     public void PlayButton()
     {
-
-        //Change this to a event that will trigger when the game starts
         thePlayer.SetActive(true);
 
-
+        thePlayer.GetComponent<PlayerController>().nextSpawnPoint = mainSceneSpawnName;
         HideMainMenu();
         ShowHUD();
         SceneManager.LoadScene(mainSceneName);
+    }
+    public void MainMenuButton()
+    {
+        thePlayer.SetActive(false);
+
+        dialogBox.SetActive(false);
+        ShowMainMenu();
+        SetPauseMenu(false);
+        HideHUD();
+        SceneManager.LoadScene(mainMenuName);
     }
 
 
@@ -384,6 +398,22 @@ public class UIManager : MonoBehaviour
     public void SetDialogueButton(bool setValue)
     {
         dialogueButton.SetActive(setValue);
+    }
+
+    public void ResumeButton()
+    {
+        //Vuelve al estado ingame
+        SetPauseMenu(false);
+    }
+
+    public void PauseButton()
+    {
+        SetPauseMenu(true);
+    }
+
+    void SetPauseMenu(bool value)
+    {
+        pauseMenu.SetActive(value);
     }
 
 }
