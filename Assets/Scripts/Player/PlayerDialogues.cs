@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerDialogues : MonoBehaviour
 {
+    [Tooltip("Dialogue of the initial cinematic")]
     public Dialogue initialDialogue;
 
-    [ContextMenu("Trigger initial dialogue")]
     public void TriggerInitialDialogue()
     {
         if(!GameManager.sharedInstance.initialCinematicTriggered)

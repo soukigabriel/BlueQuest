@@ -1031,7 +1031,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &163338039
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5377,7 +5377,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 966560550}
-  - component: {fileID: 966560551}
   m_Layer: 5
   m_Name: Shop
   m_TagString: Untagged
@@ -5406,18 +5405,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &966560551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 966560549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1dfdf2241fe49454c961ce648ade759e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &969819391 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 1715262333599121533, guid: a0f5d901c7b30e1479831700dee9b519, type: 3}
@@ -12317,6 +12304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b788552e8ca144caa797c0b18b3fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firstJosephDialogueTriggered: 0
   nameText: {fileID: 1019984069}
   dialogueText: {fileID: 1002173798}
   dialogueBox: {fileID: 1819422056}

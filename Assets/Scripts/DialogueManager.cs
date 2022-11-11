@@ -8,6 +8,8 @@ public class DialogueManager : MonoBehaviour
     Queue<string> sentences;
     public static DialogueManager sharedInstance;
 
+    public bool firstJosephDialogueTriggered;
+
     public TMP_Text nameText;
     public TMP_Text dialogueText;
     public GameObject dialogueBox;
@@ -28,6 +30,7 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         sentences = new Queue<string>();
+        firstJosephDialogueTriggered = false;
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -73,7 +76,7 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         UIManager.sharedInstance.ShowHUD();
-        GameManager.sharedInstance.SetGameState(GameState.inGame);
         dialogueBox.SetActive(false);
+        GameManager.sharedInstance.SetGameState(GameState.inGame);
     }
 }

@@ -46,8 +46,11 @@ public class UIManager : MonoBehaviour
     public GameObject HUD;
     [Tooltip("Reference to the UI character camera")]
     public GameObject UICharacterCamera;
+    [Tooltip("Reference to the sell button")]
     public GameObject sellButton;
+    [Tooltip("Reference to the buy button")]
     public GameObject buyButton;
+    [Tooltip("Reference to the dialogue box")]
     public GameObject dialogBox;
     const string mainSceneSpawnName = "MainScene";
 
@@ -55,11 +58,6 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] ClothesChange m_ClothesChange;
 
-    /*
-     * 
-     * ToDo: Conseguir los elementos de estas listas de manera dinamica consiguiendo los hijos con contengan el script ShopItem de cada sección
-     * 
-     */
     [SerializeField] List<ShopItem> hatItems = new List<ShopItem>();
     [SerializeField] List<ShopItem> clothesItems = new List<ShopItem>();
     [SerializeField] List<ShopItem> weaponItems = new List<ShopItem>();

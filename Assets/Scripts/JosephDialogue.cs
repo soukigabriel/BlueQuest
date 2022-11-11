@@ -11,12 +11,10 @@ public class JosephDialogue : MonoBehaviour
     public Dialogue finalDialogue;
     public CircleCollider2D m_CircleCollider;
     Queue<Dialogue> dialogueQueue;
-    bool firstDialogueTriggered;
 
     private void Start()
     {
         dialogueQueue = new Queue<Dialogue>();
-        firstDialogueTriggered = false;
         UIManager.sharedInstance.dialogueButton.GetComponent<Button>().onClick.AddListener(TriggerButtonDialogue);
         dialogueQueue.Enqueue(secondDialogue);
         dialogueQueue.Enqueue(thirdDialogue);
@@ -26,16 +24,16 @@ public class JosephDialogue : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            if (firstDialogueTriggered)
+            if (DialogueManager.sharedInstance.firstJosephDialogueTriggered)
                 return;
             TriggerColliderDialogue(firstMetDialogue);
-            firstDialogueTriggered = true;
+            DialogueManager.sharedInstance.firstJosephDialogueTriggered = true;
         }
     }
 
     public void TriggerButtonDialogue()
     {
-        if(firstDialogueTriggered)
+        if(DialogueManager.sharedInstance.firstJosephDialogueTriggered)
         {
             if(dialogueQueue.Count == 0)
             {
