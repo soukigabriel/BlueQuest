@@ -81,14 +81,22 @@ public class UIManager : MonoBehaviour
     //This method is called by the Play button in the main menu and starts the game
     public void PlayButton()
     {
-        thePlayer.SetActive(true);
+        Fade.sharedInstance.InitialFadeIn();
+    }
 
+    public void StartGame()
+    {
+        thePlayer.SetActive(true);
         thePlayer.GetComponent<PlayerController>().nextSpawnPoint = mainSceneSpawnName;
         HideMainMenu();
         ShowHUD();
-        GameManager.sharedInstance.SetGameState(GameState.inGame);
+        if(GameManager.sharedInstance.initialCinematicTriggered)
+        {
+            GameManager.sharedInstance.SetGameState(GameState.inGame);
+        }
         SceneManager.LoadScene(mainSceneName);
     }
+
     public void MainMenuButton()
     {
         thePlayer.SetActive(false);

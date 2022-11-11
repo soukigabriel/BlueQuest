@@ -9,9 +9,9 @@ public class PlayerDialogues : MonoBehaviour
     [ContextMenu("Trigger initial dialogue")]
     public void TriggerInitialDialogue()
     {
-        if(!GameManager.initialCinematicTriggered)
+        if(!GameManager.sharedInstance.initialCinematicTriggered)
         {
-            GameManager.initialCinematicTriggered = true;
+            GameManager.sharedInstance.initialCinematicTriggered = true;
             DialogueManager.sharedInstance.StartDialogue(initialDialogue);
         }
     }

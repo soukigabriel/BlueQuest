@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     [Tooltip("The current state of the game. Is used to define what things can be or can't be done during each state")]
     public GameState currentGameState;
     public static GameManager sharedInstance;
-    public static bool initialCinematicTriggered;
+    public bool initialCinematicTriggered;
 
     private void Awake()
     {
