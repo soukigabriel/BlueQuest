@@ -5,28 +5,46 @@ using TMPro;
 
 public class Economy : MonoBehaviour
 {
+    public static Economy sharedInstance;
+
+    [Header("Economy variables")]
+    [Tooltip("Initial money that will have the player at the start of the game")]
     public int initialMoney;
-    int money;
+    [Tooltip("Money that well be updated in real time and will be used for buying and selling")]
+    int currentMoney;
 
+    [Space]
+    [Header("UI related to the economy")]
     public TMP_Text shopMoneyText;
+    public TMP_Text HUDMoneyText;
 
-    public int Money
+    [Tooltip("This property allow us to manage the currentMoney and trigger events when it's value is modified")]
+    public int CurrentMoney
     {
-        get => money;
+        get => currentMoney;
         set
         {
-            money = value;
-            shopMoneyText.text = money.ToString();
+            currentMoney = value;
+            shopMoneyText.text = currentMoney.ToString();
+            HUDMoneyText.text = currentMoney.ToString();
+
+        }
+    }
+
+    private void Awake()
+    {
+        if(sharedInstance == null)
+        {
+            sharedInstance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
         }
     }
 
     private void Start()
     {
-        Money = initialMoney;
-    }
-
-    public void ManageMoney(int value)
-    {
-        money += value;
+        CurrentMoney = initialMoney;
     }
 }
