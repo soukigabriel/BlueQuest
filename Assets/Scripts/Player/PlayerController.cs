@@ -72,8 +72,9 @@ public class PlayerController : MonoBehaviour
 
     void MovePlayer()
     {
+
         //Store the input in the axis only if there is any. Otherwise axis is equal to zero.
-        if(Mathf.Abs(Input.GetAxisRaw(HORIZONTAL)) > 0.5f || Mathf.Abs(Input.GetAxisRaw(VERTICAL)) > 0.5f)
+        if ((Mathf.Abs(Input.GetAxisRaw(HORIZONTAL)) > 0.5f || Mathf.Abs(Input.GetAxisRaw(VERTICAL)) > 0.5f) && GameManager.sharedInstance.currentGameState == GameState.inGame)
         {
             isMoving = true;
             axis = new Vector2(Input.GetAxisRaw(HORIZONTAL), Input.GetAxisRaw(VERTICAL));

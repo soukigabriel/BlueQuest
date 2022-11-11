@@ -9,17 +9,6 @@ public class UIManager : MonoBehaviour
     [Tooltip("Shared instance of the UI manager")]
     public static UIManager sharedInstance;
 
-    [Tooltip("Main delegate of the UI")]
-    public delegate void UIDelegate();
-    [Tooltip("Event that will be triggered when the shop is opened")]
-    public static event UIDelegate EnterShop;
-    [Tooltip("Event that will be triggered when the shop is closed")]
-    public static event UIDelegate ExitShop;
-    [Tooltip("Event that will be triggered when the inventory is opened")]
-    public static event UIDelegate EnterInventory;
-    [Tooltip("Event that will be triggered when the inventory is closed")]
-    public static event UIDelegate ExitInventory;
-
     [Tooltip("Name of the main scene")]
     public string mainSceneName = "Main scene name here";
     [Tooltip("Name of the main menu scene")]
@@ -97,6 +86,7 @@ public class UIManager : MonoBehaviour
         thePlayer.GetComponent<PlayerController>().nextSpawnPoint = mainSceneSpawnName;
         HideMainMenu();
         ShowHUD();
+        GameManager.sharedInstance.SetGameState(GameState.inGame);
         SceneManager.LoadScene(mainSceneName);
     }
     public void MainMenuButton()
@@ -107,6 +97,7 @@ public class UIManager : MonoBehaviour
         ShowMainMenu();
         SetPauseMenu(false);
         HideHUD();
+        GameManager.sharedInstance.SetGameState(GameState.mainMenu);
         SceneManager.LoadScene(mainMenuName);
     }
 
@@ -177,10 +168,10 @@ public class UIManager : MonoBehaviour
         ShowUICharacterCamera();
         ShowShopMenu();
         HideHUD();
-        EnterShop?.Invoke();
         ShowShopHatSection();
         SetBuyButton(false);
         SetSellButton(false);
+        GameManager.sharedInstance.SetGameState(GameState.shoping);
         currentSelectedObject = null;
     }
 
@@ -190,7 +181,7 @@ public class UIManager : MonoBehaviour
         HideUICharacterCamera();
         HideShopMenu();
         ShowHUD();
-        ExitShop?.Invoke();
+        GameManager.sharedInstance.SetGameState(GameState.inGame);
     }
 
     //Open the Inventory and change the game state to inventory
@@ -199,8 +190,8 @@ public class UIManager : MonoBehaviour
         ShowUICharacterCamera();
         HideHUD();
         ShowInventory();
-        EnterInventory?.Invoke();
         ShowInventoryHatSection();
+        GameManager.sharedInstance.SetGameState(GameState.inInventory);
     }
 
     //Close the Inventory and change the game state to inGame
@@ -209,7 +200,7 @@ public class UIManager : MonoBehaviour
         HideUICharacterCamera();
         ShowHUD();
         HideInventory();
-        ExitInventory?.Invoke();
+        GameManager.sharedInstance.SetGameState(GameState.inGame);
     }
 
     bool ItemHaveBeenSold(ShopItem item)
@@ -413,6 +404,14 @@ public class UIManager : MonoBehaviour
 
     void SetPauseMenu(bool value)
     {
+        if(value)
+        {
+            GameManager.sharedInstance.SetGameState(GameState.inPause);
+        }
+        else
+        {
+            GameManager.sharedInstance.SetGameState(GameState.inGame);
+        }
         pauseMenu.SetActive(value);
     }
 

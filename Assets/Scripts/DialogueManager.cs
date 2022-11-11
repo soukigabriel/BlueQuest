@@ -32,6 +32,8 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
+        UIManager.sharedInstance.HideHUD();
+        GameManager.sharedInstance.SetGameState(GameState.inDialogue);
         dialogueBox.SetActive(true);
         nameText.text = dialogue.name;
         sentences.Clear();
@@ -70,6 +72,8 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
+        UIManager.sharedInstance.ShowHUD();
+        GameManager.sharedInstance.SetGameState(GameState.inGame);
         dialogueBox.SetActive(false);
     }
 }

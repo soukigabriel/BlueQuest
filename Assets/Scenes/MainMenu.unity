@@ -663,7 +663,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &108926642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -907,6 +907,25 @@ MonoBehaviour:
   rightRightLegNakedSprite: {fileID: 21300000, guid: d4e401d1b2d9744438e713ac0e6379d4, type: 3}
   swordOneSprite: {fileID: 21300000, guid: d78cfcdfab8a133448a26a240dd52eb0, type: 3}
   swordTwoSprite: {fileID: 21300000, guid: 25514f2f19646ac43ad6527d7e3797fe, type: 3}
+--- !u!114 &141190734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141190723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f963c8f760acc43438fe5a21a26aa5b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialDialogue:
+    name: Gabriel
+    sentences:
+    - ufff... ufff...
+    - I can't believe i survived that last fight...
+    - But my armor and my sword are so worn now. Thank god I found a shop, I just
+      need to enter that door behind me...
 --- !u!212 &148672270 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 402870401553241909, guid: a0f5d901c7b30e1479831700dee9b519, type: 3}
@@ -2310,7 +2329,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &415841313
 RectTransform:
   m_ObjectHideFlags: 0
