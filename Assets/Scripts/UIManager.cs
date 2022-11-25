@@ -73,7 +73,7 @@ public class UIManager : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        mainMenu.SetActive(true);
+        //mainMenu.SetActive(true);
     }
 
     //This method is called by the Play button in the main menu and starts the game
