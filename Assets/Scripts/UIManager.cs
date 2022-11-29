@@ -209,34 +209,34 @@ public class UIManager : MonoBehaviour
         GameManager.sharedInstance.SetGameState(GameState.inGame);
     }
 
-    bool ItemHaveBeenSold(ShopItem item)
-    {
-        if (item.HaveBeenSold)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+    //bool ItemHaveBeenSold(ShopItem item)
+    //{
+    //    if (item.HaveBeenSold)
+    //    {
+    //        return true;
+    //    }
+    //    else
+    //    {
+    //        return false;
+    //    }
+    //}
 
-    void SetPriceObject(List<ShopItem> itemList)
-    {
-        foreach (ShopItem item in itemList)
-        {
-            if (ItemHaveBeenSold(item))
-            {
-                item.myPriceObject.SetActive(false);
-                item.mySoldObject.SetActive(true);
-            }
-            else
-            {
-                item.myPriceObject.SetActive(true);
-                item.mySoldObject.SetActive(false);
-            }
-        }
-    }
+    //void SetPriceObject(List<ShopItem> itemList)
+    //{
+    //    foreach (ShopItem item in itemList)
+    //    {
+    //        if (ItemHaveBeenSold(item))
+    //        {
+    //            item.myPriceObject.SetActive(false);
+    //            item.mySoldObject.SetActive(true);
+    //        }
+    //        else
+    //        {
+    //            item.myPriceObject.SetActive(true);
+    //            item.mySoldObject.SetActive(false);
+    //        }
+    //    }
+    //}
 
     //Change the current section of the shop menu to the hat section
     public void ShowShopHatSection()
@@ -247,7 +247,7 @@ public class UIManager : MonoBehaviour
         shopHatSection.SetActive(true);
         HideShopClotheSection();
         HideShopWeaponSection();
-        SetPriceObject(hatItems);
+        //SetPriceObject(hatItems);
     }
 
     public void HideShopHatSection()
@@ -264,7 +264,7 @@ public class UIManager : MonoBehaviour
         shopClotheSection.SetActive(true);
         HideShopHatSection();
         HideShopWeaponSection();
-        SetPriceObject(clothesItems);
+        //SetPriceObject(clothesItems);
     }
 
     public void HideShopClotheSection()
@@ -281,7 +281,7 @@ public class UIManager : MonoBehaviour
         shopWeaponSection.SetActive(true);
         HideShopHatSection();
         HideShopClotheSection();
-        SetPriceObject(weaponItems);
+        //SetPriceObject(weaponItems);
     }
 
     public void HideShopWeaponSection()
