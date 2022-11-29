@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Item
 {
-    bool haveBeenPurchased = false;
+    public bool haveBeenSold = false;
 
     public enum ItemClass
     {
@@ -52,5 +52,15 @@ public class Item
             case ItemType.BasicSword:   return 600;
             case ItemType.StrongSword:  return 1500;
         }
+    }
+
+    public bool GetHaveBeenSold()
+    {
+        return haveBeenSold;
+    }
+
+    public void SetHaveBeenSold(bool newState)
+    {
+        haveBeenSold = newState;
     }
 }

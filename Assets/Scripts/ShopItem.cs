@@ -19,15 +19,15 @@ public class ShopItem : MonoBehaviour
         get => haveBeenSold;
         set
         {
-            haveBeenSold = value;
-            if(value == true)
-            {
-                m_InventoryItem.SetActive(true);
-            }
-            else
-            {
-                m_InventoryItem.SetActive(false);
-            }
+            //haveBeenSold = value;
+            //if(value == true)
+            //{
+            //    m_InventoryItem.SetActive(true);
+            //}
+            //else
+            //{
+            //    m_InventoryItem.SetActive(false);
+            //}
         }
     }
 

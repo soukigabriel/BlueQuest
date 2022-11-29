@@ -14,11 +14,11 @@ public class UI_Shop : MonoBehaviour
     {
         shop = new Shop();
 
-        shop.AddItem(new Item { currentItemClass = Item.ItemClass.Hat, currentItemType = Item.ItemType.BasicHelmet });
+        shop.AddItem(new Item { currentItemClass = Item.ItemClass.Hat, currentItemType = Item.ItemType.BasicHelmet, haveBeenSold = true});
         shop.AddItem(new Item { currentItemClass = Item.ItemClass.Hat, currentItemType = Item.ItemType.StrongHelmet });
-        shop.AddItem(new Item { currentItemClass = Item.ItemClass.Clothes, currentItemType = Item.ItemType.BasicArmor });
+        shop.AddItem(new Item { currentItemClass = Item.ItemClass.Clothes, currentItemType = Item.ItemType.BasicArmor, haveBeenSold = true });
         shop.AddItem(new Item { currentItemClass = Item.ItemClass.Clothes, currentItemType = Item.ItemType.StrongArmor });
-        shop.AddItem(new Item { currentItemClass = Item.ItemClass.Weapon, currentItemType = Item.ItemType.BasicSword });
+        shop.AddItem(new Item { currentItemClass = Item.ItemClass.Weapon, currentItemType = Item.ItemType.BasicSword , haveBeenSold = true});
         shop.AddItem(new Item { currentItemClass = Item.ItemClass.Weapon, currentItemType = Item.ItemType.StrongSword });
 
         RefreshShop();
@@ -43,7 +43,6 @@ public class UI_Shop : MonoBehaviour
 
             foreach (Item item in shop.GetItemList())
             {
-
                 bool canBeInstantiated = false;
                 switch (container.GetComponent<SlotContainer>().currentContainerType)
                 {
@@ -79,10 +78,18 @@ public class UI_Shop : MonoBehaviour
                     shopItemRectTransform.anchoredPosition = new Vector2((x * itemSlotCellSize) + (x * itemSlotPadding), (y * itemSlotCellSize) + (y * itemSlotPadding));
                     Image itemImage = shopItemRectTransform.Find("Item").GetComponent<Image>();
                     itemImage.sprite = item.GetSprite();
-                    GameObject costObject = shopItemRectTransform.Find("Cost").gameObject;
-                    costObject.SetActive(true);
-                    TMP_Text costText = costObject.transform.Find("CostText").GetComponent<TMP_Text>();
-                    costText.SetText(item.GetCost().ToString());
+                    if (item.haveBeenSold)
+                    {
+                        GameObject soldObject = shopItemRectTransform.Find("Sold").gameObject;
+                        soldObject.SetActive(true);
+                    }
+                    else
+                    {
+                        GameObject costObject = shopItemRectTransform.Find("Cost").gameObject;
+                        costObject.SetActive(true);
+                        TMP_Text costText = costObject.transform.Find("CostText").GetComponent<TMP_Text>();
+                        costText.SetText(item.GetCost().ToString());
+                    }
                     x++;
                     if (x > 2)
                     {
