@@ -54,7 +54,8 @@ public class UIManager : MonoBehaviour
     public GameObject dialogBox;
     const string mainSceneSpawnName = "MainScene";
 
-    [SerializeField] ShopItem currentSelectedObject;
+    [SerializeField] Item currentSelectedItem;
+    [SerializeField] GameObject currentSelectedObject;
 
     [SerializeField] ClothesChange m_ClothesChange;
 
@@ -348,17 +349,18 @@ public class UIManager : MonoBehaviour
         sellButton.SetActive(newValue);
     }
 
-    public void SetCurrentSelectedObject(ShopItem selectedObject)
+    public void SetCurrentSelectedObject(Item selectedItem, GameObject selectedObject)
     {
         currentSelectedObject = selectedObject;
-        if (!currentSelectedObject.haveBeenSold)
+        currentSelectedItem = selectedItem;
+        if (!currentSelectedItem.haveBeenSold)
         {
             SetBuyButton(true);
             SetSellButton(false);
         }
         else
         {
-            m_ClothesChange.EquipItem(currentSelectedObject.currentItemType);
+            m_ClothesChange.EquipItem(currentSelectedItem);
             SetBuyButton(false);
             SetSellButton(true);
         }
@@ -366,29 +368,33 @@ public class UIManager : MonoBehaviour
 
     public void BuyItem()
     {
-        if (currentSelectedObject.GetPrice() <= Economy.sharedInstance.CurrentMoney && !currentSelectedObject.haveBeenSold)
+        if (currentSelectedItem.GetCost() <= Economy.sharedInstance.CurrentMoney && !currentSelectedItem.haveBeenSold)
         {
-            Economy.sharedInstance.CurrentMoney -= currentSelectedObject.GetPrice();
-            currentSelectedObject.HaveBeenSold = true;
+            Economy.sharedInstance.CurrentMoney -= currentSelectedItem.GetCost();
+            currentSelectedItem.haveBeenSold = true;
             SetBuyButton(false);
             SetSellButton(true);
-            currentSelectedObject.ShowPrice(false);
-            m_ClothesChange.EquipItem(currentSelectedObject.currentItemType);
-            //Inventory.sharedInstance.AddItem(currentSelectedObject);
+            currentSelectedObject.transform.Find("Cost").gameObject.SetActive(false);
+            currentSelectedObject.transform.Find("Sold").gameObject.SetActive(true);
+            m_ClothesChange.EquipItem(currentSelectedItem);
+            UI_Inventory.sharedInstance.inventory.AddItem(currentSelectedItem);
+            UI_Inventory.sharedInstance.RefreshInventoryItem();
         }
     }
 
     public void SellItem()
     {
-        if(currentSelectedObject.haveBeenSold)
+        if(currentSelectedItem.haveBeenSold)
         {
-            Economy.sharedInstance.CurrentMoney += currentSelectedObject.GetPrice();
-            currentSelectedObject.HaveBeenSold = false;
+            Economy.sharedInstance.CurrentMoney += currentSelectedItem.GetCost();
+            currentSelectedItem.haveBeenSold = false;
             SetBuyButton(true);
             SetSellButton(false);
-            currentSelectedObject.ShowPrice(true);
-            m_ClothesChange.UnequipItem(currentSelectedObject.currentItemType);
-            //Inventory.sharedInstance.RemoveItem(currentSelectedObject);
+            currentSelectedObject.transform.Find("Sold").gameObject.SetActive(false);
+            currentSelectedObject.transform.Find("Cost").gameObject.SetActive(true);
+            m_ClothesChange.UnequipItem(currentSelectedItem);
+            UI_Inventory.sharedInstance.inventory.RemoveItem(currentSelectedItem);
+            UI_Inventory.sharedInstance.RefreshInventoryItem();
         }
     }
 

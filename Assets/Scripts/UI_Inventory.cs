@@ -7,10 +7,14 @@ public class UI_Inventory : MonoBehaviour
 {
     public Inventory inventory;
     public List<Transform> itemSlotContainers;
+    public static UI_Inventory sharedInstance;
 
 
     private void Start()
     {
+        if (sharedInstance == null) sharedInstance = this;
+        else Destroy(gameObject);
+
         inventory = new Inventory();
 
         //inventory.AddItem(new Item { currentItemType = Item.ItemType.BasicHelmet, currentItemClass = Item.ItemClass.Hat });
@@ -26,7 +30,8 @@ public class UI_Inventory : MonoBehaviour
         //RefreshInventoryItem();
     }
 
-    void RefreshInventoryItem()
+    [ContextMenu("Refresh inventory")]
+    public void RefreshInventoryItem()
     {
         foreach (Transform container in itemSlotContainers)
         {
@@ -35,7 +40,7 @@ public class UI_Inventory : MonoBehaviour
             foreach(Transform child in container)
             {
                 if (child == itemSlotTemplate) continue;
-                Destroy(child.transform);
+                Destroy(child.gameObject);
             }
 
             int x = 0, y = 0;

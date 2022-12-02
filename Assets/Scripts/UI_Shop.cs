@@ -35,7 +35,7 @@ public class UI_Shop : MonoBehaviour
             foreach (Transform child in container)
             {
                 if (child == itemSlotTemplate) continue;
-                Destroy(child.transform);
+                Destroy(child.gameObject);
             }
 
             int x = 1, y = 0;
@@ -80,6 +80,7 @@ public class UI_Shop : MonoBehaviour
                     itemImage.sprite = item.GetSprite();
                     if (item.haveBeenSold)
                     {
+                        UI_Inventory.sharedInstance.inventory.AddItem(item);
                         GameObject soldObject = shopItemRectTransform.Find("Sold").gameObject;
                         soldObject.SetActive(true);
                     }
@@ -90,6 +91,13 @@ public class UI_Shop : MonoBehaviour
                         TMP_Text costText = costObject.transform.Find("CostText").GetComponent<TMP_Text>();
                         costText.SetText(item.GetCost().ToString());
                     }
+
+                    ShopItem shopItem = shopItemRectTransform.gameObject.AddComponent<ShopItem>();
+                    shopItem.thisItem = item;
+
+                    Button shopItemButton = shopItemRectTransform.GetComponent<Button>();
+                    shopItemButton.onClick.RemoveAllListeners();
+                    shopItemButton.onClick.AddListener(shopItem.SendCurrentItemToManager);
                     x++;
                     if (x > 2)
                     {
