@@ -378,7 +378,7 @@ public class UIManager : MonoBehaviour
             currentSelectedObject.transform.Find("Sold").gameObject.SetActive(true);
             m_ClothesChange.EquipItem(currentSelectedItem);
             UI_Inventory.sharedInstance.inventory.AddItem(currentSelectedItem);
-            UI_Inventory.sharedInstance.RefreshInventoryItem();
+            UI_Inventory.sharedInstance.RefreshInventoryItems();
         }
     }
 
@@ -394,7 +394,7 @@ public class UIManager : MonoBehaviour
             currentSelectedObject.transform.Find("Cost").gameObject.SetActive(true);
             m_ClothesChange.UnequipItem(currentSelectedItem);
             UI_Inventory.sharedInstance.inventory.RemoveItem(currentSelectedItem);
-            UI_Inventory.sharedInstance.RefreshInventoryItem();
+            UI_Inventory.sharedInstance.RefreshInventoryItems();
         }
     }
 

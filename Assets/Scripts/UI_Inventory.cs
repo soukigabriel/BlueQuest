@@ -15,7 +15,7 @@ public class UI_Inventory : MonoBehaviour
         if (sharedInstance == null) sharedInstance = this;
         else Destroy(gameObject);
 
-        inventory = new Inventory();
+        SetInventory();
 
         //inventory.AddItem(new Item { currentItemType = Item.ItemType.BasicHelmet, currentItemClass = Item.ItemClass.Hat });
         //inventory.AddItem(new Item { currentItemType = Item.ItemType.StrongArmor, currentItemClass = Item.ItemClass.Clothes });
@@ -30,8 +30,19 @@ public class UI_Inventory : MonoBehaviour
         //RefreshInventoryItem();
     }
 
+    void SetInventory()
+    {
+        inventory = new Inventory();
+        inventory.OnItemListChanged += Inventory_OnItemListChanged;
+    }
+
+    private void Inventory_OnItemListChanged(object sender, System.EventArgs e)
+    {
+        RefreshInventoryItems();
+    }
+
     [ContextMenu("Refresh inventory")]
-    public void RefreshInventoryItem()
+    public void RefreshInventoryItems()
     {
         foreach (Transform container in itemSlotContainers)
         {
