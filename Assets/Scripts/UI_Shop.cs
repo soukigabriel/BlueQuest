@@ -29,12 +29,13 @@ public class UI_Shop : MonoBehaviour
         foreach (Transform container in itemSlotContainers)
         {
             Transform itemSlotTemplate = container.Find("ItemSlotTemplate");
+            Transform hideItemButton = container.Find("hideItemButton");
             GameObject templateCostObject = itemSlotTemplate.Find("Cost").gameObject;
             templateCostObject.SetActive(false);
 
             foreach (Transform child in container)
             {
-                if (child == itemSlotTemplate) continue;
+                if (child == itemSlotTemplate || child == hideItemButton) continue;
                 Destroy(child.gameObject);
             }
 
@@ -76,20 +77,23 @@ public class UI_Shop : MonoBehaviour
                 {
                     RectTransform shopItemRectTransform = Instantiate(itemSlotTemplate, container).GetComponent<RectTransform>();
                     shopItemRectTransform.anchoredPosition = new Vector2((x * itemSlotCellSize) + (x * itemSlotPadding), (y * itemSlotCellSize) + (y * itemSlotPadding));
+                    shopItemRectTransform.gameObject.SetActive(true);
                     Image itemImage = shopItemRectTransform.Find("Item").GetComponent<Image>();
                     itemImage.sprite = item.GetSprite();
+                    GameObject costObject = shopItemRectTransform.Find("Cost").gameObject;
+                    TMP_Text costText = costObject.transform.Find("CostText").GetComponent<TMP_Text>();
+                    costText.SetText(item.GetCost().ToString());
+                    GameObject soldObject = shopItemRectTransform.Find("Sold").gameObject;
                     if (item.haveBeenSold)
                     {
                         UI_Inventory.sharedInstance.inventory.AddItem(item);
-                        GameObject soldObject = shopItemRectTransform.Find("Sold").gameObject;
                         soldObject.SetActive(true);
+                        costObject.SetActive(false);
                     }
                     else
                     {
-                        GameObject costObject = shopItemRectTransform.Find("Cost").gameObject;
+                        soldObject.SetActive(false);
                         costObject.SetActive(true);
-                        TMP_Text costText = costObject.transform.Find("CostText").GetComponent<TMP_Text>();
-                        costText.SetText(item.GetCost().ToString());
                     }
 
                     ShopItem shopItem = shopItemRectTransform.gameObject.AddComponent<ShopItem>();

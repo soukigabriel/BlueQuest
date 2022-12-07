@@ -4,5 +4,10 @@ using UnityEngine;
 
 public class InventoryItem : MonoBehaviour
 {
-    Item item;
+    public Item thisItem;
+
+    public void SetItem()
+    {
+        FindObjectOfType<ClothesChange>().EquipItem(thisItem);
+    }
 }

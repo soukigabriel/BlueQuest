@@ -16,18 +16,6 @@ public class UI_Inventory : MonoBehaviour
         else Destroy(gameObject);
 
         SetInventory();
-
-        //inventory.AddItem(new Item { currentItemType = Item.ItemType.BasicHelmet, currentItemClass = Item.ItemClass.Hat });
-        //inventory.AddItem(new Item { currentItemType = Item.ItemType.StrongArmor, currentItemClass = Item.ItemClass.Clothes });
-        //inventory.AddItem(new Item { currentItemType = Item.ItemType.BasicArmor, currentItemClass = Item.ItemClass.Clothes });
-        //inventory.AddItem(new Item { currentItemType = Item.ItemType.StrongArmor, currentItemClass = Item.ItemClass.Clothes });
-        //inventory.AddItem(new Item { currentItemType = Item.ItemType.StrongHelmet, currentItemClass = Item.ItemClass.Hat });
-        //inventory.AddItem(new Item { currentItemType = Item.ItemType.StrongSword, currentItemClass = Item.ItemClass.Weapon });
-        //inventory.AddItem(new Item { currentItemType = Item.ItemType.BasicSword, currentItemClass = Item.ItemClass.Weapon });
-        //inventory.AddItem(new Item { currentItemType = Item.ItemType.BasicSword, currentItemClass = Item.ItemClass.Weapon });
-        //inventory.AddItem(new Item { currentItemType = Item.ItemType.StrongHelmet, currentItemClass = Item.ItemClass.Hat });
-        //inventory.AddItem(new Item { currentItemType = Item.ItemType.BasicHelmet, currentItemClass = Item.ItemClass.Hat });
-        //RefreshInventoryItem();
     }
 
     void SetInventory()
@@ -54,7 +42,7 @@ public class UI_Inventory : MonoBehaviour
                 Destroy(child.gameObject);
             }
 
-            int x = 0, y = 0;
+            int x = 1, y = 0;
             float itemSlotCellSize = 30f, itemSlotPadding = 5f;
 
             foreach (Item item in inventory.GetItemList())
@@ -95,6 +83,23 @@ public class UI_Inventory : MonoBehaviour
                     itemSlotRectTransform.anchoredPosition = new Vector2((x * itemSlotCellSize) + (x * itemSlotPadding), (y * itemSlotCellSize) + (y * itemSlotPadding));
                     Image itemImage = itemSlotRectTransform.Find("Item").GetComponent<Image>();
                     itemImage.sprite = item.GetSprite();
+
+                    /*
+                     * 
+                     * ToDo:
+                     * 
+                     * Hacer que al ser instanciados nuevos elementos en el inventario se le añada un listener para que dependiendo del tipo de Item el personaje cambie su ropa.
+                     * 
+                     */
+
+                    InventoryItem inventoryItem = itemSlotRectTransform.gameObject.AddComponent<InventoryItem>();
+                    inventoryItem.thisItem = item;
+
+                    Button inventoryItemButton = itemSlotRectTransform.GetComponent<Button>();
+                    inventoryItemButton.onClick.RemoveAllListeners();
+                    inventoryItemButton.onClick.AddListener(inventoryItem.SetItem);
+
+
                     x++;
                     if(x>2)
                     {

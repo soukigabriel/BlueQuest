@@ -339,12 +339,12 @@ public class UIManager : MonoBehaviour
         inventoryWeaponSection.SetActive(false);
     }
 
-    void SetBuyButton(bool newValue)
+    public void SetBuyButton(bool newValue)
     {
         buyButton.SetActive(newValue);
     }
 
-    void SetSellButton(bool newValue)
+    public void SetSellButton(bool newValue)
     {
         sellButton.SetActive(newValue);
     }
