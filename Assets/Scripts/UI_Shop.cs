@@ -12,7 +12,7 @@ public class UI_Shop : MonoBehaviour
 
     private void Start()
     {
-        shop = new Shop();
+        SetShop();
 
         shop.AddItem(new Item { currentItemClass = Item.ItemClass.Hat, currentItemType = Item.ItemType.BasicHelmet, haveBeenSold = true});
         shop.AddItem(new Item { currentItemClass = Item.ItemClass.Hat, currentItemType = Item.ItemType.StrongHelmet });
@@ -24,8 +24,20 @@ public class UI_Shop : MonoBehaviour
         RefreshShop();
     }
 
+    void SetShop()
+    {
+        shop = new Shop();
+        shop.OnItemListChanged += Shop_OnItemListChanged;
+    }
+
+    private void Shop_OnItemListChanged(object sender, System.EventArgs e)
+    {
+        RefreshShop();
+    }
+
     void RefreshShop()
     {
+        UI_Inventory.sharedInstance.inventory.ClearInventory();
         foreach (Transform container in itemSlotContainers)
         {
             Transform itemSlotTemplate = container.Find("ItemSlotTemplate");

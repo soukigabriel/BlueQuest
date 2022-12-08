@@ -84,14 +84,6 @@ public class UI_Inventory : MonoBehaviour
                     Image itemImage = itemSlotRectTransform.Find("Item").GetComponent<Image>();
                     itemImage.sprite = item.GetSprite();
 
-                    /*
-                     * 
-                     * ToDo:
-                     * 
-                     * Hacer que al ser instanciados nuevos elementos en el inventario se le añada un listener para que dependiendo del tipo de Item el personaje cambie su ropa.
-                     * 
-                     */
-
                     InventoryItem inventoryItem = itemSlotRectTransform.gameObject.AddComponent<InventoryItem>();
                     inventoryItem.thisItem = item;
 

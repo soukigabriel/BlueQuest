@@ -23,10 +23,21 @@ public class Inventory
     public void RemoveItem(Item itemToRemove)
     {
         itemList.Remove(itemToRemove);
+        OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public List<Item> GetItemList()
     {
         return itemList;
     }
+
+    public void ClearInventory()
+    {
+        itemList.Clear();
+    }
+
+    //public bool ListContainsObject(Item item)
+    //{
+    //    return itemList.Contains(item);
+    //}
 }
