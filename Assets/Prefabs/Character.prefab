@@ -1684,7 +1684,7 @@ GameObject:
   - component: {fileID: 6752972780177259205}
   - component: {fileID: 6972573800940179871}
   m_Layer: 0
-  m_Name: Sword
+  m_Name: WeaponSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2084,7 +2084,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1761855653
   m_SortingLayer: -4
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 49ab222600d43c541a143348c197ae25, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2194,7 +2194,7 @@ GameObject:
   - component: {fileID: 6685041339644294099}
   - component: {fileID: 5298806762021556025}
   m_Layer: 0
-  m_Name: Sword
+  m_Name: WeaponSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3508,7 +3508,7 @@ GameObject:
   - component: {fileID: 1788849618831691315}
   - component: {fileID: 1715262333599121533}
   m_Layer: 0
-  m_Name: Sword
+  m_Name: WeaponSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4056,7 +4056,7 @@ GameObject:
   - component: {fileID: 1427376477860387856}
   - component: {fileID: 2074689227481782046}
   m_Layer: 0
-  m_Name: Sword
+  m_Name: WeaponSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4237,7 +4237,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1761855653
   m_SortingLayer: -4
-  m_SortingOrder: 5
+  m_SortingOrder: 8
   m_Sprite: {fileID: 21300000, guid: 0c3369f571393b840bc14046ee1ad552, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4516,13 +4516,16 @@ GameObject:
   - component: {fileID: -3420967617434937575}
   - component: {fileID: 8049628657713291500}
   - component: {fileID: 8335233233842464558}
+  - component: {fileID: 141190729}
+  - component: {fileID: 141190734}
+  - component: {fileID: 3070431421144883609}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2410372035205861568
 Transform:
   m_ObjectHideFlags: 0
@@ -4603,7 +4606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextSpawnPoint: MainScene
   speed: 175
-  lastMovement: {x: 0, y: 0}
+  lastMovement: {x: 0, y: -1}
 --- !u!95 &8335233233842464558
 Animator:
   serializedVersion: 4
@@ -4624,6 +4627,200 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &141190729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9031257179034986193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8af95935fbf0ba94ebd38291898f8edf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frontHatSpriteOne: {fileID: 21300000, guid: 19302b6ee3393ac4ea8c46c22e690e9a, type: 3}
+  frontHatSpriteTwo: {fileID: 21300000, guid: 7621202ce76c34c4ba225b38f2d2d1b6, type: 3}
+  frontBodyClotheSpriteOne: {fileID: 21300000, guid: 427d867232f3e0c48a9fb135e6c9af1b, type: 3}
+  frontBodyClotheSpriteTwo: {fileID: 21300000, guid: 193cc8d18792ef54d8faad8054d1b91a, type: 3}
+  frontLeftArmClotheSprite: {fileID: 21300000, guid: 45410feedd4e3a94494649597ded949a, type: 3}
+  frontRightArmClotheSprite: {fileID: 21300000, guid: dbcf8556596c3c549a3f611db7985736, type: 3}
+  frontLeftLegClotheSprite: {fileID: 21300000, guid: a90c330f1b683bf4a91d4d6967de36a9, type: 3}
+  frontRightLegClotheSprite: {fileID: 21300000, guid: 875d0f051661c0d48a45dad9737f6b12, type: 3}
+  frontLeftArmNakedSprite: {fileID: 21300000, guid: 70f2620cc13e79a4db97e6427d7b4db6, type: 3}
+  frontRightArmNakedSprite: {fileID: 21300000, guid: 1314a8ac44600344694f9e9e5b5db452, type: 3}
+  frontLeftLegNakedSprite: {fileID: 21300000, guid: 97ad075851e620e4ab34bec8a0a4f29b, type: 3}
+  frontRightLegNakedSprite: {fileID: 21300000, guid: e6592a1dca709884ba449a49f1818283, type: 3}
+  frontHat: {fileID: 2888083310796576702}
+  frontBodyClothes: {fileID: 1635880731692507891}
+  frontLeftArm: {fileID: 5983236951770282318}
+  frontRightArm: {fileID: 3653552122080759837}
+  frontWeaponSprite: {fileID: 2074689227481782046}
+  frontLeftLeg: {fileID: 3490996764756859394}
+  frontRightLeg: {fileID: 5340130804295670696}
+  InventoryFrontHat: {fileID: 0}
+  InventoryFrontBodyClothes: {fileID: 0}
+  InventoryFrontLeftArm: {fileID: 0}
+  InventoryFrontRightArm: {fileID: 0}
+  InventoryWeaponSprite: {fileID: 0}
+  InventoryFrontLeftLeg: {fileID: 0}
+  InventoryFrontRightLeg: {fileID: 0}
+  backHat: {fileID: 2017908354768388872}
+  backBodyClothes: {fileID: 5993338996750650493}
+  backLeftArm: {fileID: 4430158745132470924}
+  backRightArm: {fileID: 6952635002976070276}
+  backWeaponSprite: {fileID: 5298806762021556025}
+  backLeftLeg: {fileID: 2778167241733036926}
+  backRightLeg: {fileID: 4398944250311791812}
+  backHatSpriteOne: {fileID: 21300000, guid: 49ab222600d43c541a143348c197ae25, type: 3}
+  backHatSpriteTwo: {fileID: 21300000, guid: 1e792d85f757ef343b4d426021e2a4ec, type: 3}
+  backBodyClotheSpriteOne: {fileID: 21300000, guid: 9c0bc9f743b0baf43b524d6c84609437, type: 3}
+  backBodyClotheSpriteTwo: {fileID: 21300000, guid: 6d562248390c0534fbfa2ec9a685cce1, type: 3}
+  backLeftArmClotheSprite: {fileID: 21300000, guid: 4eaaf0bfc2a8d0c4fa58387f5a61b6c6, type: 3}
+  backRightArmClotheSprite: {fileID: 21300000, guid: 0f1615664ecbe37468cba1a06558a9ff, type: 3}
+  backLeftLegClotheSprite: {fileID: 21300000, guid: 25007b264ec66c84e89f2e6893dac475, type: 3}
+  backRightLegClotheSprite: {fileID: 21300000, guid: a75ee8a96e292564b9463ff781e37bcf, type: 3}
+  backLeftArmNakedSprite: {fileID: 21300000, guid: 48662ffde95d9e547b0a98d0969367ac, type: 3}
+  backRightArmNakedSprite: {fileID: 21300000, guid: 281a15ee5a1b6854e8ccbaf6963321d3, type: 3}
+  backLeftLegNakedSprite: {fileID: 21300000, guid: ce01e3247ca81a74caa6546a5bad9980, type: 3}
+  backRightLegNakedSprite: {fileID: 21300000, guid: 3d242a4a61747864283a0b555b301d4e, type: 3}
+  leftHat: {fileID: 402870401553241909}
+  leftBodyClothes: {fileID: 822676003081285487}
+  leftLeftArm: {fileID: 9137732028324976480}
+  leftRightArm: {fileID: 102294661267187836}
+  leftWeaponSprite: {fileID: 6972573800940179871}
+  leftLeftLeg: {fileID: 6178744947906776279}
+  leftRightLeg: {fileID: 5474153678069962546}
+  leftHatSpriteOne: {fileID: 21300000, guid: a65cbbf9fc470ee45ab9f2cebbf333f5, type: 3}
+  leftHatSpriteTwo: {fileID: 21300000, guid: cd5a1bab40e4b984fabf094b4a87c735, type: 3}
+  leftBodyClotheSpriteOne: {fileID: 21300000, guid: a8654765ddbbe1f4db8071b88d251774, type: 3}
+  leftBodyClotheSpriteTwo: {fileID: 21300000, guid: 9092fa8f26f0b1e4abe1c3bf017214ea, type: 3}
+  leftLeftArmClotheSprite: {fileID: 21300000, guid: 0c3369f571393b840bc14046ee1ad552, type: 3}
+  leftRightArmClotheSprite: {fileID: 21300000, guid: 0c3369f571393b840bc14046ee1ad552, type: 3}
+  leftLeftLegClotheSprite: {fileID: 21300000, guid: 50f834ce858026b4594df279a41f51e2, type: 3}
+  leftRightLegClotheSprite: {fileID: 21300000, guid: 5fe46e5be2fee3f4f9d03ae46cf187f6, type: 3}
+  leftLeftArmNakedSprite: {fileID: 21300000, guid: 20a80b79bb5d24d42bb31a0b7c9456e1, type: 3}
+  leftRightArmNakedSprite: {fileID: 21300000, guid: 20a80b79bb5d24d42bb31a0b7c9456e1, type: 3}
+  leftLeftLegNakedSprite: {fileID: 21300000, guid: 5a5af5c020e4a5c4a9c83e8add097c03, type: 3}
+  leftRightLegNakedSprite: {fileID: 21300000, guid: 37dc15dc58c0c744ba6e77592d5ad28e, type: 3}
+  rightHat: {fileID: 5572797324206133489}
+  rightBodyClothes: {fileID: 6625881847877694934}
+  rightLeftArm: {fileID: 270721557942870393}
+  rightRightArm: {fileID: 8861357086250778891}
+  rightWeaponSprite: {fileID: 1715262333599121533}
+  rightLeftLeg: {fileID: 7620983135622974566}
+  rightRightLeg: {fileID: 1075247532058503663}
+  rightHatSpriteOne: {fileID: 21300000, guid: f8e1658e85711574d98668e47be18321, type: 3}
+  rightHatSpriteTwo: {fileID: 21300000, guid: 5a7123da9e6525b46893d2c46ac6cb31, type: 3}
+  rightBodyClotheSpriteOne: {fileID: 21300000, guid: 4bd11c3cfc87c5643a97ce890f5c0454, type: 3}
+  rightBodyClotheSpriteTwo: {fileID: 21300000, guid: 3f7e808b1d1c87a4dbdd634033381c7d, type: 3}
+  rightLeftArmClotheSprite: {fileID: 21300000, guid: 23571f4755c83214ca0afe6f809048a6, type: 3}
+  rightRightArmClotheSprite: {fileID: 21300000, guid: 23571f4755c83214ca0afe6f809048a6, type: 3}
+  rightLeftLegClotheSprite: {fileID: 21300000, guid: 53c826fffaeb98c44bbc552f373ee2fe, type: 3}
+  rightRightLegClotheSprite: {fileID: 21300000, guid: 7afd3e39cbd5c1943b26bef3b5776a36, type: 3}
+  rightLeftArmNakedSprite: {fileID: 21300000, guid: 32bcbc2f2291e1f488ddaae0696fbc6a, type: 3}
+  rightRightArmNakedSprite: {fileID: 21300000, guid: 32bcbc2f2291e1f488ddaae0696fbc6a, type: 3}
+  rightLeftLegNakedSprite: {fileID: 21300000, guid: f039da3f090e4464aa47f829609a0ffc, type: 3}
+  rightRightLegNakedSprite: {fileID: 21300000, guid: d4e401d1b2d9744438e713ac0e6379d4, type: 3}
+  swordOneSprite: {fileID: 21300000, guid: d78cfcdfab8a133448a26a240dd52eb0, type: 3}
+  swordTwoSprite: {fileID: 21300000, guid: 25514f2f19646ac43ad6527d7e3797fe, type: 3}
+--- !u!114 &141190734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9031257179034986193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f963c8f760acc43438fe5a21a26aa5b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialDialogue:
+    name: Gabriel
+    sentences:
+    - ufff... ufff...
+    - I can't believe i survived that last fight...
+    - But my armor and my sword are so worn now. Thank god I found a shop, I just
+      need to enter that door behind me...
+--- !u!114 &3070431421144883609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9031257179034986193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 1
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.8
+  m_Color: {r: 0.3529412, g: 0.57254905, b: 1, a: 1}
+  m_Intensity: 0.5
+  m_LightVolumeIntensity: 1
+  m_LightVolumeIntensityEnabled: 0
+  m_ApplyToSortingLayers: 39578217ef3a0e35e1719648cd2b953a5b37fc966bccdc1d7b3eba5afdc6806a00000000c70d1a07
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowIntensityEnabled: 0
+  m_ShadowIntensity: 0.75
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_Vertices:
+  - position: {x: 0.9985302, y: 0.9985302, z: 0}
+    color: {r: 0.70710677, g: 0.70710677, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.9985302, y: 0.9985302, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.9985302, y: 0.9985302, z: 0}
+    color: {r: -0.70710677, g: 0.70710677, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.9985302, y: 0.9985302, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.99853003, y: -0.9985304, z: 0}
+    color: {r: -0.70710665, g: -0.7071069, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: -0.99853003, y: -0.9985304, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.99853003, y: -0.9985304, z: 0}
+    color: {r: 0.70710665, g: -0.7071069, b: 0, a: 0}
+    uv: {x: 0, y: 0}
+  - position: {x: 0.99853003, y: -0.9985304, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  - position: {x: 0, y: 0, z: 0}
+    color: {r: 0, g: 0, b: 0, a: 1}
+    uv: {x: 0, y: 0}
+  m_Triangles: 030001000800020000000100030002000100050003000800040002000300050004000300070005000800060004000500070006000500010007000800000006000700010000000700
+  m_LocalBounds:
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 2.15
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
 --- !u!1 &9080352642254371402
 GameObject:
   m_ObjectHideFlags: 0
