@@ -144,59 +144,48 @@ public class ClothesChange : MonoBehaviour
     public Sprite swordOneSprite;
     public Sprite swordTwoSprite;
 
-
-
-    public void EquipItem(ItemType theItem)
+    public void EquipItem(Item theItem)
     {
-        switch (theItem)
+
+        switch (theItem.currentItemType)
         {
-            case ItemType.HatOne:
+            case Item.ItemType.BasicHelmet:
                 SetHatOne();
                 break;
-            case ItemType.HatTwo:
+            case Item.ItemType.StrongHelmet:
                 SetHatTwo();
                 break;
-            case ItemType.ClothesOne:
+            case Item.ItemType.BasicArmor:
                 SetClotheOne();
                 break;
-            case ItemType.ClothesTwo:
+            case Item.ItemType.StrongArmor:
                 SetClotheTwo();
                 break;
-            case ItemType.SwordOne:
+            case Item.ItemType.BasicSword:
                 SetWeaponOne();
                 break;
-            case ItemType.SwordTwo:
+            case Item.ItemType.StrongSword:
                 SetWeaponTwo();
                 break;
-
             default:
                 break;
         }
     }
 
-    public void UnequipItem(ItemType theItem)
+    public void UnequipItem(Item theItem)
     {
-        switch (theItem)
-        {
-            case ItemType.HatOne:
-                HideHat();
-                break;
-            case ItemType.HatTwo:
-                HideHat();
-                break;
-            case ItemType.ClothesOne:
-                HideClothe();
-                break;
-            case ItemType.ClothesTwo:
-                HideClothe();
-                break;
-            case ItemType.SwordOne:
-                HideWeapon();
-                break;
-            case ItemType.SwordTwo:
-                HideWeapon();
-                break;
 
+        switch (theItem.currentItemClass)
+        {
+            case Item.ItemClass.Hat:
+                HideHat();
+                break;
+            case Item.ItemClass.Clothes:
+                HideClothe();
+                break;
+            case Item.ItemClass.Weapon:
+                HideWeapon();
+                break;
             default:
                 break;
         }
