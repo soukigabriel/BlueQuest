@@ -54,6 +54,9 @@ TagManager:
   - name: Player
     uniqueID: 2533111643
     locked: 0
+  - name: UIPlayer
+    uniqueID: 3531132239
+    locked: 0
   - name: Forest
     uniqueID: 501009515
     locked: 0
