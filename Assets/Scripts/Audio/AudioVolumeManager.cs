@@ -32,11 +32,6 @@ public class AudioVolumeManager : MonoBehaviour
         ChangeSFXVolume();
     }
 
-    private void Update()
-    {
-
-    }
-
     public void ChangeAudioVolume(float value)
     {
         currentAudioVolumeLevel = Mathf.Clamp(value, 0, maxVolumeLevel);
